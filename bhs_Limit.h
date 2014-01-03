@@ -1,42 +1,41 @@
 #ifndef BHS_LIMIT_H
 #define BHS_LIMIT_H
 
-#include "WPILib/AnalogChannel.h"
+#include "WPILib/DigitalInput.h"
 
 class bhs_Compressor {
 public:
 
 	/**
 	 * Constructor for Limits.
-	 * \param p_lower lower limit
-	 * \param p_upper upper limit
+	 * \param p_lower lower limit switch port number
+	 * \param p_upper upper limit swtich port number
 	 */
 	bhs_Limit(UINT32 p_lower, UINT32 p_upper);
 
 	/**
 	 * Destructor.
-	 * Destructs the Limit
 	 */
 	~bhs_Compressor();
 
 	/**
-	 * Returns if the Limit is at its lowest.
-	 * \return if the limit is at its lowest
+	 * Returns if the lower limit switch has been hit
+	 * \return if the lower limit switch has been hit
 	 */
 	bool atLower();
 
 	/**
-	 * Returns if the limit is at its peak.
-	 * /return if the limit is at its peak
+	 * Returns if the upper limit switch has been hit
+	 * /return if the upper limit switch has been hit
 	 */
 	bool atUpper();
 
 private:
 
-	///The Limit's lower limit
+	///The lower limit switch
 	DigitalInput m_lower;
 
-	///The Limit's highest limit
+	///The upper limit switch
 	DigitalInput m_upper;
 
 };
