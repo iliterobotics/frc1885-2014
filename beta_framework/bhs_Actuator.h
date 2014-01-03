@@ -33,22 +33,22 @@ public:
 	/**
 	 * Constructor for Talons and Solenoids.
 	 * \param p_type type of Actuator
-	 * \param p_channel port to which the Actuator is located
+	 * \param p_channel port at which the Actuator is located
 	 */
 	bhs_Actuator(ActuatorType p_type, UINT32 p_channel);
 
 	/**
 	 * Constructor for DoubleSolenoid.
 	 * \param p_type type of Actuator
-	 * \param p_channel1 first port to which the Actuator is located
-	 * \param p_channel2 second port to which the Actuator is located
+	 * \param p_channel1 first port at which the Actuator is located
+	 * \param p_channel2 second port at which the Actuator is located
 	 */
 	bhs_Actuator(ActuatorType p_type, UINT32 p_channel1, UINT32 p_channel2);
 
 	/**
 	 * Constructor for Relays.
 	 * \param p_type type of Actuator
-	 * \param p_channel port to which the Actuator is located
+	 * \param p_channel port at which the Actuator is located
 	 * \param p_direction the direction that the Relay object will control
 	 */
 	bhs_Actuator(ActuatorType p_type, UINT32 p_channel, Relay::Direction p_direction);
@@ -62,7 +62,7 @@ public:
 	 /**
  	  * Depending of the type of actuator, moves it accordingly.
       * Actuates Talons at a sepcified speed
-      * If the Actuator is not a Talon, moves forard if the parameter is postive, backwards if negative, or turned off if 0
+      * If the Actuator is not a Talon, moves forard if the parameter is postive, backwards if negative, or turned off/remain at current state if 0
       * \param p_speed speed at which the Actuator will move
       */
 	void move(float p_speed);
