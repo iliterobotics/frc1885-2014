@@ -1,2 +1,7 @@
 .metadata/
-
+*.cproject
+*.project
+*.wrmakefile
+*.wrproject
+*.out
+*/PPC603gnu/
