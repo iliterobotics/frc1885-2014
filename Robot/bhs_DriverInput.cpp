@@ -23,10 +23,4 @@ void bhs_DriverInput::run() {
 
 	m_gd->mdd_buttonUseArcadeDrive = m_joystick1.GetRawButton(BUTTON_USE_ARCADE_DRIVE);
 	
-	printf("DriverInput:\n1x: %f\t1y: %f\t2x: %f\t2y: %f\tarcade: %d\n\n",
-			m_gd->mdd_joystick1X,
-			m_gd->mdd_joystick1Y,
-			m_gd->mdd_joystick2X,
-			m_gd->mdd_joystick2Y,
-			m_gd->mdd_buttonUseArcadeDrive);
 }

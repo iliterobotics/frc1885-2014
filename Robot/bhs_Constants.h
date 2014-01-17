@@ -4,6 +4,8 @@
 #include "types/vxTypesOld.h"
 #include "Joystick.h"
 
+#define PRODUCTION_ROBOT 0
+
 class bhs_Constants {
 	public:
 		// drive train constants
@@ -20,11 +22,23 @@ class bhs_Constants {
 		static const float MIN_DRIVE_ANGLE_SPEED_STATIC;
 		static const float MIN_DRIVE_ANGLE_SPEED_KINETIC;
 		*/
-		static const int WHEEL_DIAMETER = 6;
-		static const int ENCODER_TICKS_PER_DEGREE = 4;
+		
+#if PRODUCTION_ROBOT
+		static const int WHEEL_DIAMETER = 5;
+#else
+		static const int WHEEL_DIAMETER = 4;
+#endif
+		
+#if PRODUCTION_ROBOT
+		static const int ENCODER_TICKS_PER_ROTATION = 256;
+#else
+		static const int ENCODER_TICKS_PER_ROTATION = 128;
+#endif
 
 		static const int ENCODER_CHANNEL1 = 1;
 		static const int ENCODER_CHANNEL2 = 2;
+		
+		static const int GYRO_CHANNEL = 1;
 };
 
 #endif // BHS_CONSTANTS_H_
