@@ -1,12 +1,10 @@
 #include "bhs_OutputManager.h"
 
 bhs_OutputManager::bhs_OutputManager(bhs_GlobalData* a_gd) 
-	: m_driveLeftB(K_DRIVE_RIGHT_B)
-	, m_driveRightB(K_DRIVE_LEFT_B)
+	: m_driveLeftB(bhs_Constants::DT_LEFT_B_PWM)
+	, m_driveRightB(bhs_Constants::DT_RIGHT_B_PWM)
 {
 	m_gd = a_gd;
-
-	// Actuator declarations go here
 }
 
 bhs_OutputManager::~bhs_OutputManager() {

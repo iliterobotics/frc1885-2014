@@ -10,11 +10,6 @@
 
 class bhs_OutputManager {
 	public:
-		static const UINT32 K_DRIVE_LEFT_B = 1;
-		static const UINT32 K_DRIVE_RIGHT_B = 2;
-		
-		// Constant declarations go here.
-
 		typedef enum MotorID { 
 		};
 

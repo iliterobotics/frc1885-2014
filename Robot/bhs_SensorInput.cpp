@@ -3,7 +3,7 @@
 // Constant instantiations go here
 
 bhs_SensorInput::bhs_SensorInput(bhs_GlobalData* a_gd) 
-	: m_encoder(bhs_Constants::ENCODER_CHANNEL1, bhs_Constants::ENCODER_CHANNEL2, true)
+	: m_encoder(bhs_Constants::ENCODER_CHANNEL1, bhs_Constants::ENCODER_CHANNEL2)
 	, m_gyro(bhs_Constants::GYRO_CHANNEL)
 {
 	m_gd = a_gd;
