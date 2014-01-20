@@ -13,13 +13,14 @@ public:
         void setConstants ( float P, float I, float D );
         void reset();
         float getPID ( float pv, float sp);
+        float getI ( float dt );
+        float getP () const;
+        float getD () const;
 
         
 private:
 
-        float getP () const;
-        float getI ( float dt );
-        float getD () const;
+        
 
         float m_p, m_i, m_d;
         

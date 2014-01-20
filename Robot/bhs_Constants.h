@@ -14,9 +14,9 @@
 class bhs_Constants {
 public:
 #if DRIVETRAIN
-	static const double PID_STRAIGHT_P = 0.1; // default 0.5
-	static const double PID_STRAIGHT_I = 0.0001; // default 0.0
-	static const double PID_STRAIGHT_D = 0.0000; // default -0.00
+	static const double PID_STRAIGHT_P = 0.01; // default 0.0015
+	static const double PID_STRAIGHT_I = 0.0000225; // default 0.0
+	static const double PID_STRAIGHT_D = 0.00000; // default -0.00
 	static const float JOYSTICK_DEAD_ZONE = 0.1;
 	static const int ENCODER_CHANNEL1 = 1;
 	static const int ENCODER_CHANNEL2 = 2;

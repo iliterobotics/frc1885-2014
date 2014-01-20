@@ -24,5 +24,5 @@ void bhs_SensorInput::run() {
 	// Read values from sensors and store in global variables
 	m_gd->mdd_encoderCounts = m_encoder.Get();
 	m_gd->mdd_gyroAngle = m_gyro.GetAngle();
-	//printf("Gyro angle: %f\n", m_gd->mdd_gyroAngle);
+	printf("Gyro angle: %f\n", m_gd->mdd_gyroAngle);
 }

@@ -3,10 +3,10 @@
 
 #include <math.h>
 
-#include <DriverStation.h>
-#include "Timer.h"
+#include "DriverStation.h"
 
 #include "bhs_GlobalData.h"
+#include "PID.h"
 
 class bhs_Autonomous {
 	public:
@@ -28,19 +28,21 @@ class bhs_Autonomous {
 		
 		bhs_GlobalData* m_gd;
 		State m_state;
-
-		Timer m_timer;
+		PID m_straightPID;
 		
 		static const float k_velDiff = 0.005;
 		static const float k_maxVel = 0.8;
-		static const int k_dist = 180;
+		static const int k_dist = 200;
+		static const int k_pidThreshold = 0;
 		int m_encoderMarker;
 
 		void reset();
 		int inchesToEncoder(float a_inches);
+		float encoderToInches(int a_encoders);
 
 		void moveForward15();
 		void trapezoidal();
+		void pidAuto();
 };
 
 #endif //BHS_AUTONOMOUS_H_
