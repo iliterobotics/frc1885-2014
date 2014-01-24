@@ -27,13 +27,18 @@ class bhs_OutputManager {
 		void runMotors();
 		void runPneumatics();
 
+#if COMPRESSOR
 		Compressor m_compressor;
-		
-		// Drivetrain
+#endif	// COMPRESSOR
+#if DRIVETRAIN
 		Talon m_driveLeftB, m_driveRightB;
-		// Intake
+#endif	// DRIVETRAIN
+#if INTAKE
 		Talon m_intakeRoller;
+#endif	// INTAKE
+#if TUSKS
 		DoubleSolenoid m_leftTusk, m_rightTusk;
+#endif	// TUSKS
 		
 		bool* m_reversedMotors;
 };

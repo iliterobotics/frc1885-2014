@@ -6,7 +6,7 @@
 #define COMPRESSOR 1
 #define DRIVETRAIN 1
 #define INTAKE 1
-#define TUSK 1
+#define TUSKS 1
 #define KICKER 0
 #define LAUNCHER 0
 
@@ -15,7 +15,7 @@
 class bhs_Constants {
 public:
 #if COMPRESSOR
-	static const int PRESSURE_SWITCH = 1;
+	static const int PRESSURE_SWITCH = 5;
 	static const int COMPRESSOR_RELAY = 1;
 #endif
 
@@ -46,12 +46,12 @@ public:
 #endif // INTAKE
 
 
-#if TUSK
+#if TUSKS
 	static const int LEFT_TUSK_FORWARD_SOLENOID = 1;
 	static const int LEFT_TUSK_REVERSE_SOLENOID = 2;
 	static const int RIGHT_TUSK_FORWARD_SOLENOID = 3;
 	static const int RIGHT_TUSK_REVERSE_SOLENOID = 4;
-#endif	// TUSK
+#endif	// TUSKS
 
 
 #if KICKER
