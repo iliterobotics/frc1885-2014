@@ -2,7 +2,7 @@
 #define BHS_DRIVETRAIN_H_
 
 #include "bhs_Constants.h"
-#include "bhs_GlobalData.h"
+#include "bhs_GDDrivetrain.h"
 #include "bhs_PID.h"
 
 class bhs_DriveTrain  {
@@ -10,7 +10,6 @@ class bhs_DriveTrain  {
 		bhs_DriveTrain(bhs_GDDrivetrain*);
 		~bhs_DriveTrain();
 
-		void init();
 		void run();
 
 	private:

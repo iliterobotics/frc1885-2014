@@ -3,9 +3,10 @@
 
 #define PRODUCTION_ROBOT 0
 
+#define COMPRESSOR 1
 #define DRIVETRAIN 1
-#define INTAKE 0
-#define TUSK 0
+#define INTAKE 1
+#define TUSK 1
 #define KICKER 0
 #define LAUNCHER 0
 
@@ -13,6 +14,11 @@
 
 class bhs_Constants {
 public:
+#if COMPRESSOR
+	static const int PRESSURE_SWITCH = 1;
+	static const int COMPRESSOR_RELAY = 1;
+#endif
+
 #if DRIVETRAIN
 	static const double PID_STRAIGHT_P = 0.01; // default 0.0015
 	static const double PID_STRAIGHT_I = 0.0000225; // default 0.0
@@ -36,18 +42,20 @@ public:
 
 
 #if INTAKE
-	static const UINT32 INTAKE_PWM = 5;
+	static const int INTAKE_PWM = 5;
 #endif // INTAKE
 
 
 #if TUSK
-	static const UINT32 TUSK_FORWARD_SOLENOID = 1;
-	static const UINT32 TUSK_BACKWARD_SOLENOID = 2;
+	static const int LEFT_TUSK_FORWARD_SOLENOID = 1;
+	static const int LEFT_TUSK_REVERSE_SOLENOID = 2;
+	static const int RIGHT_TUSK_FORWARD_SOLENOID = 3;
+	static const int RIGHT_TUSK_REVERSE_SOLENOID = 4;
 #endif	// TUSK
 
 
 #if KICKER
-	static const UINT32 KICKER_SOLENOID = 3;
+	static const int KICKER_SOLENOID = 3;
 #endif
 
 

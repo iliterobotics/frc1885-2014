@@ -1,6 +1,7 @@
 #ifndef BHS_OUTPUT_MANAGER_H_
 #define BHS_OUTPUT_MANAGER_H_
 
+#include "Compressor.h"
 #include "Talon.h"
 #include "Solenoid.h"
 #include "Relay.h"
@@ -22,16 +23,19 @@ class bhs_OutputManager {
 	private:
 		bhs_GlobalData* m_gd;
 
-
 		void safety();
 		void runMotors();
 		void runPneumatics();
+
+		Compressor m_compressor;
 		
+		// Drivetrain
 		Talon m_driveLeftB, m_driveRightB;
+		// Intake
+		Talon m_intakeRoller;
+		DoubleSolenoid m_leftTusk, m_rightTusk;
 		
 		bool* m_reversedMotors;
-
-		// Talon, Solenoid, and Relay declarations go here
 };
 
 #endif //BHS_OUTPUT_MANAGER_H_
