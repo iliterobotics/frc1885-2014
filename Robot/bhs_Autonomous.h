@@ -23,25 +23,24 @@ class bhs_Autonomous {
 				k_constVel,
 				k_decel,
 			k_finished
-			// ...
 		} State;
 		
 		bhs_GlobalData* m_gd;
 		State m_state;
 		PID m_straightPID;
 		
-		static const float k_velDiff = 0.005;
+#if not PRODUCTION_ROBOT
+		static const float k_ticksPerInch = 15.691;
+#endif
+		
 		static const float k_maxVel = 0.8;
-		static const int k_dist = 200;
+		static const int k_dist = 180;			// 180 inches, 15 feet
 		static const int k_pidThreshold = 0;
-		int m_encoderMarker;
 
 		void reset();
 		int inchesToEncoder(float a_inches);
 		float encoderToInches(int a_encoders);
 
-		void moveForward15();
-		void trapezoidal();
 		void pidAuto();
 };
 
