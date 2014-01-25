@@ -1,7 +1,5 @@
 #include "bhs_DriveTrain.h"
 
-#define abs(x) ((x) >= 0 ? (x) : -(x))
-
 bhs_DriveTrain::bhs_DriveTrain(bhs_GDDrivetrain* a_dd) 
 	: m_driveStraightPID()
 {
@@ -30,8 +28,8 @@ void bhs_DriveTrain::arcadeDrive() {
 	float l_leftRightSpeed;
 
 	// the robot can only be in drive straight if the joysticks are in the proper orientation
-	if (abs(m_dd->mdd_joystick2X) < bhs_Constants::JOYSTICK_DEAD_ZONE &&
-			abs(m_dd->mdd_joystick2Y) > bhs_Constants::JOYSTICK_DEAD_ZONE) {
+	if (fabs(m_dd->mdd_joystick2X) < bhs_Constants::JOYSTICK_DEAD_ZONE &&
+			fabs(m_dd->mdd_joystick2Y) > bhs_Constants::JOYSTICK_DEAD_ZONE) {
 		// if we are not already in drive straight, set drive straight on and
 		// then set the desired angle to the current gyro reading so that the
 		// robot can lock on to this angle as it moves
@@ -73,7 +71,7 @@ float bhs_DriveTrain::limit(float a_motorSpeed) {
 }
 
 float bhs_DriveTrain::deadzone(float a_joystickValue) {
-	if (abs(a_joystickValue) < bhs_Constants::JOYSTICK_DEAD_ZONE)
+	if (fabs(a_joystickValue) < bhs_Constants::JOYSTICK_DEAD_ZONE)
 		return 0.0;
 	else if (a_joystickValue > 1.0)
 		return 1.0;
