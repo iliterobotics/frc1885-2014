@@ -56,7 +56,7 @@ void bhs_OutputManager::safety() {
 
 void bhs_OutputManager::runMotors() {
 #if DRIVETRAIN
-	printf("dtLeft: %f\tdtRight: %f\t", m_gd->mdd_driveLeftPower, m_gd->mdd_driveRightPower);
+	//printf("dtLeft: %f\tdtRight: %f\t", m_gd->mdd_driveLeftPower, m_gd->mdd_driveRightPower);
 	m_driveLeftB.SetSpeed(m_gd->mdd_driveLeftPower);
 	m_driveRightB.SetSpeed(m_gd->mdd_driveRightPower);
 #endif	// DRIVETRAIN

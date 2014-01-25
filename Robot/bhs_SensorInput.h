@@ -22,7 +22,10 @@ class bhs_SensorInput {
 		bhs_GlobalData* m_gd;
 
 		// Sensor declarations go here
-		Encoder m_encoder;
+		Encoder m_leftEncoder;
+#if TWO_ENCODERS
+		Encoder m_rightEncoder;
+#endif
 		
 		Gyro m_gyro;
 

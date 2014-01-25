@@ -5,7 +5,7 @@
 
 #include "bhs_Constants.h"
 #include "bhs_GDDrivetrain.h"
-#include "bhs_PID.h"
+#include "PID.h"
 
 class bhs_DriveTrain  {
 	public:
@@ -16,12 +16,12 @@ class bhs_DriveTrain  {
 
 	private:
 		bhs_GDDrivetrain* m_dd;
-		bhs_PID m_driveStraightPID;
-		bool m_driveStraight;
-		float m_desiredAngle;
+		PID m_driveStraightPID;
 
-		void arcadeDrive();
 		void tankDrive();
+		void arcadeDrive();
+			void driveStraight();
+				void driveStraightReset();
 
 		float limit(float);
 		float deadzone(float);
