@@ -8,7 +8,8 @@ bhs_Test::bhs_Test(bhs_GlobalData* in_data)
 	data = in_data;
 
 	// Instantiations go here
-	state = init;
+	state = runTest;
+	inState = preset;
 }
 
 bhs_Test::~bhs_Test()
@@ -41,15 +42,15 @@ void bhs_Test::run()
 			break;
 		}
 		break;
-	case reset:
+	case resetTest:
 		reset();
 		break;
 	}
-	if (joystick.getRawButton(8))
+	if (joystick.GetRawButton(8))
 	{
-		state = reset;
+		state = resetTest;
 	}
-	else if (joystick.getRawButton(9))
+	else if (joystick.GetRawButton(9))
 	{
 		if (inState == preset)
 		{
@@ -83,8 +84,8 @@ void bhs_Test::input1(float joy1y, float joy2y)
 
 void bhs_Test::input2()
 {
-	data->mdd_joystick1X = joystick.getAxis(Joystick::kXAxis);
-	data->mdd_joystick1Y = joystick.getAxis(Joystick::kYAxis);
+	data->mdd_joystick1X = joystick.GetAxis(Joystick::kXAxis);
+	data->mdd_joystick1Y = joystick.GetAxis(Joystick::kYAxis);
 }
 
 void bhs_Test::debugStatements()

@@ -2,5 +2,5 @@
 
 bhs_GlobalData::bhs_GlobalData() {
 	
-	UINT32 cycleTime = Utility.getFPGATime();
+	UINT32 cycleTime = GetFPGATime();
 }

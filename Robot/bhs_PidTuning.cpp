@@ -7,11 +7,6 @@ const static int dDown = 0;
 
 bhs_GlobalData* data();
 
-Joystick* bhs_PidTuning::input();
-bhs_PID* bhs_PidTuning::pid();
-
-bool bhs_PidTuning::debug;
-
 bhs_PidTuning::bhs_PidTuning(bhs_GlobalData* globals, bhs_PID* inPID, Joystick* inJoystick, bool debugOut)
 {
 	data = globals;
@@ -33,20 +28,21 @@ void bhs_PidTuning::handleInputs()
 {
 	if (data->cycleTime % 200)
 	{
-		switch (input->getRawButons())
+		if (input->GetRawButton(6))
 		{
-		case pUp:
-			pid->setVals(pid->getP() += 0.01, pid->getD());
-			break;
-		case pDown:
-			pid->setVals(pid->getP() -= 0.01, pid->getD());
-			break;
-		case dUp:
-			pid->setVals(pid->getP(), pid->getD() += 0.01);
-			break;
-		case dDown:
-			pid->setVals(pid->getP(), pid->getD() -= 0.01);
-			break;
+			pid->setVals(pid->getP() + 0.01, pid->getD());
+		}
+		else if (input->GetRawButton(7))
+		{
+			pid->setVals(pid->getP() - 0.01, pid->getD());
+		}
+		if (input->GetRawButton(11))
+		{
+			pid->setVals(pid->getP(), pid->getD() + 0.01);
+		}
+		else if (input->GetRawButton(10))
+		{
+			pid->setVals(pid->getP(), pid->getD() - 0.01);
 		}
 	}
 }

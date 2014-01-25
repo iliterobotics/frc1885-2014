@@ -15,6 +15,8 @@
 
 #include "bhs_OutputManager.h"
 
+#include "bhs_Test.h"
+
 class bhs_Robot {
 	public:
 		bhs_Robot();

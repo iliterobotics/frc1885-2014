@@ -26,9 +26,10 @@ class bhs_Test
 		typedef enum
 		{
 			runTest = 0,
-			reset
+			resetTest
 			// ...
 		} State;
+		
 		typedef enum
 		{
 			preset = 0,
@@ -51,4 +52,4 @@ class bhs_Test
 		void debugStatements();
 };
 
-#endif BHS_TEST_H_
+#endif //BHS_TEST_H_

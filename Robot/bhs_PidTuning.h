@@ -1,7 +1,7 @@
-#include "Robot/bhs_PID.h"
-#include "AnalogChannel.h"
-#include "Talon.h"
-#include "Joystick.h"
+#include "bhs_PID.h"
+#include <AnalogChannel.h>
+#include <Talon.h>
+#include <Joystick.h>
 #include "bhs_GlobalData.h"
 
 class bhs_PidTuning

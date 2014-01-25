@@ -11,6 +11,8 @@ bhs_Robot::bhs_Robot()
 	m_autonomousInput = new bhs_Autonomous(&m_gd);
 	m_driverInput = new bhs_DriverInput(&m_gd);
 
+	m_testInput = new bhs_Test(&m_gd);
+	
 	m_drivetrain = new bhs_DriveTrain(&m_gd);
 }
 
@@ -18,7 +20,7 @@ bhs_Robot::~bhs_Robot() {
 	delete m_sensorInput;
 	delete m_autonomousInput;
 	delete m_driverInput;
-	
+	delete m_testInput;
 	delete m_drivetrain;
 }
 
