@@ -7,7 +7,7 @@
 class bhs_Intake  {
 	public:
 		bhs_Intake(bhs_GDIntake*);
-		~bhs_Intake();
+		//~bhs_Intake();
 
 		void run();
 

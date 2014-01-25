@@ -11,5 +11,8 @@ void bhs_Tusks::run() {
 	} else if(m_dt->mdt_tusksDown) {
 		m_dt->mdt_leftTuskOutput = DoubleSolenoid::kReverse;
 		m_dt->mdt_rightTuskOutput = DoubleSolenoid::kForward;
+	} else {
+		m_dt->mdt_leftTuskOutput = DoubleSolenoid::kOff;
+		m_dt->mdt_rightTuskOutput = DoubleSolenoid::kOff;
 	}
 }

@@ -3,10 +3,10 @@
 
 #define PRODUCTION_ROBOT 0
 
-#define COMPRESSOR 1
+#define COMPRESSOR 0
 #define DRIVETRAIN 1
-#define INTAKE 1
-#define TUSKS 1
+#define INTAKE 0
+#define TUSKS 0
 #define KICKER 0
 #define LAUNCHER 0
 

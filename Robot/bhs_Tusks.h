@@ -7,7 +7,7 @@
 class bhs_Tusks  {
 	public:
 		bhs_Tusks(bhs_GDTusks*);
-		~bhs_Tusks();
+		//~bhs_Tusks();
 
 		void run();
 
