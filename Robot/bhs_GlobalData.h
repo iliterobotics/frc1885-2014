@@ -3,16 +3,14 @@
 
 #include "bhs_Constants.h"
 #include "bhs_GDDrivetrain.h"
-#include "bhs_GDIntake.h"
-#include "bhs_GDTusks.h"
+#include <Utility>
 
 class bhs_GlobalData
 	: public bhs_GDDrivetrain
-	, public bhs_GDIntake
-	, public bhs_GDTusks
 {
 	public:
 		bhs_GlobalData();
+		UINT32 cycleTime; // Current time in [milli-seconds] when the current code cycle began
 };
 
 #endif // BHS_GLOBAL_DATA_H_

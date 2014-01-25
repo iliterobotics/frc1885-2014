@@ -15,14 +15,7 @@ class bhs_DriverInput {
 		static const UINT32 JOYSTICK_DRIVER_2_PORT = 2;
 		static const UINT32 JOYSTICK_OPERATOR_1_PORT = 3;
 		
-		// Drivetrain
 		static const UINT32 BUTTON_USE_ARCADE_DRIVE = 3;
-
-		// Intake (roller and tusks)
-		static const UINT32 INTAKE_FORWARD = 5;
-		static const UINT32 INTAKE_REVERSED = 7;
-		static const UINT32 TUSKS_UP = 6;
-		static const UINT32 TUSKS_DOWN = 8;
 		
 		
 		bhs_DriverInput(bhs_GlobalData*);
@@ -36,7 +29,7 @@ class bhs_DriverInput {
 
 		Joystick m_joystick1;
 		Joystick m_joystick2;
-		Joystick m_controller;
+		Joystick m_buttonboard;
 };
 
 #endif //BHS_DRIVER_INPUT_H_

@@ -24,4 +24,3 @@ bhs_GDDrivetrain::bhs_GDDrivetrain() {
 	m_minSpeedKinetic = 0.05;
 	m_minSpeedStatic = 0.05;
 }
-

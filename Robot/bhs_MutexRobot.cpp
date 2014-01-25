@@ -5,6 +5,7 @@ bhs_MutexRobot::bhs_MutexRobot()
 	, m_disabledInitialized(false)
 	, m_autonomousInitialized(false)
 	, m_teleopInitialized(false)
+	, m_testInitialized(false)
 	, m_period(k_defaultPeriod)
 {
 	// configure for round-robin scheduling
@@ -58,14 +59,25 @@ void bhs_MutexRobot::StartCompetition() {
 				m_autonomousInitialized = true;
 				m_disabledInitialized = false;
 				m_teleopInitialized = false;
+				m_testInitialized = false;
 			}
 			AutonomousPeriodic();
+		} else if (IsTest()) {
+			if (!m_testInitialized) {
+				TestInit();
+				m_teleopInitialized = false;
+				m_disabledInitialized = false;
+				m_autonomousInitialized = false;
+				m_testInitialized = true;
+			}
+			TestPeriodic();
 		} else {
 			if (!m_teleopInitialized) {
 				TeleopInit();
 				m_teleopInitialized = true;
 				m_disabledInitialized = false;
 				m_autonomousInitialized = false;
+				m_testInitialized = false;
 			}
 			TeleopPeriodic();
 		}
@@ -96,6 +108,14 @@ void bhs_MutexRobot::TeleopInit() {
 
 void bhs_MutexRobot::TeleopPeriodic() {
 	m_robot.teleop();
+}
+
+void bhs_MutexRobot::TestInit() {
+	m_robot.testInit();
+}
+
+void bhs_MutexRobot::TestPeriodic() {
+	m_robot.test();
 }
 
 void bhs_MutexRobot::infiniteTimerTask() {

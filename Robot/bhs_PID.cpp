@@ -18,12 +18,19 @@ void bhs_PID::reset() {
 	m_firstRun = true;
 }
 
-void bhs_PID::init(double a_p, double a_i, double a_d) {
-	m_pMult = a_p;
-	m_iMult = a_i;
-	m_dMult = a_d;
+void bhs_PID::init(double a_pMult, double a_iMult, double a_dMult) {
+	m_pMult = a_pMult;
+	m_iMult = a_iMult;
+	m_dMult = a_dMult;
 	m_useMaxCumul = false;
 }
+
+void bhs_PID::setVals(double p, double d)
+{
+	init(p, 0.0, d);
+	reset();
+}
+
 
 void bhs_PID::setMaxCumul(double a_maxCumul) {
 	m_useMaxCumul = true;

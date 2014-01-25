@@ -26,9 +26,11 @@ class bhs_MutexRobot : public RobotBase {
 		virtual void DisabledInit();
 		virtual void AutonomousInit();
 		virtual void TeleopInit();
+		virtual void TestInit();
 
 		virtual void AutonomousPeriodic();
 		virtual void TeleopPeriodic();
+		virtual void TestPeriodic();
 
 		void SetPeriod(double);
 		double GetPeriod();
@@ -42,6 +44,7 @@ class bhs_MutexRobot : public RobotBase {
 		bool m_disabledInitialized;
 		bool m_autonomousInitialized;
 		bool m_teleopInitialized;
+		bool m_testInitialized;
 		double m_period;
 
 		SEM_ID m_periodSem;

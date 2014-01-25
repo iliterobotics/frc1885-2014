@@ -2,7 +2,6 @@
 #define BHS_SENSOR_INPUT_H_
 
 #include "Encoder.h"
-#include "Gyro.h"
 
 #include "bhs_Constants.h"
 #include "bhs_GlobalData.h"
@@ -11,6 +10,13 @@ using namespace std;
 
 class bhs_SensorInput {
 	public:
+		// analog inputs
+		// static const UINT32 _CHANNEL;
+		// ...
+		
+		// digital inputs
+		// static const UINT32 _CHANNEL;
+		// ...
 		
 		bhs_SensorInput(bhs_GlobalData*);
 		~bhs_SensorInput();
@@ -23,8 +29,6 @@ class bhs_SensorInput {
 
 		// Sensor declarations go here
 		Encoder m_encoder;
-		
-		Gyro m_gyro;
 
 };
 

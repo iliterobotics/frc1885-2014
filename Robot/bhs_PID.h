@@ -6,7 +6,8 @@ class bhs_PID {
 		bhs_PID();
 		
 		void reset();
-		void init(double a_p, double a_i=0.0, double a_d=0.00);
+		void init(double, double, double);
+		void setVals(double p, double d);
 		void setMaxCumul(double);
 		double apply(double error);
 		

@@ -12,8 +12,6 @@ bhs_Robot::bhs_Robot()
 	m_driverInput = new bhs_DriverInput(&m_gd);
 
 	m_drivetrain = new bhs_DriveTrain(&m_gd);
-	m_intake = new bhs_Intake(&m_gd);
-	m_tusks = new bhs_Tusks(&m_gd);
 }
 
 bhs_Robot::~bhs_Robot() {
@@ -22,8 +20,6 @@ bhs_Robot::~bhs_Robot() {
 	delete m_driverInput;
 	
 	delete m_drivetrain;
-	delete m_intake;
-	delete m_tusks;
 }
 
 void bhs_Robot::disabledInit() {
@@ -53,8 +49,19 @@ void bhs_Robot::teleop() {
 
 void bhs_Robot::normalRobotProcessing() {
 	m_drivetrain->run();
-	m_intake->run();
-	m_tusks->run();
 	
 	m_outputManager.run();
+}
+
+void bhs_Robot::testInit()
+{
+	m_sensorInput->init();
+	m_testInput->init();
+}
+
+void bhs_Robot::test()
+{
+	m_sensorInput->run();
+	m_testInput->run();
+	normalRobotProcessing();
 }
