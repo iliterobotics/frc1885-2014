@@ -31,7 +31,7 @@ class bhs_OutputManager {
 		Compressor m_compressor;
 #endif	// COMPRESSOR
 #if DRIVETRAIN
-		Talon m_driveLeftB, m_driveRightB;
+		Talon m_driveLeftB, m_driveRightB, m_driveLeftF, m_driveRightF;
 #endif	// DRIVETRAIN
 #if INTAKE
 		Talon m_intakeRoller;

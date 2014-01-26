@@ -1,7 +1,7 @@
 #ifndef BHS_CONSTANTS_H_
 #define BHS_CONSTANTS_H_
 
-#define PRODUCTION_ROBOT 0
+#define PRODUCTION_ROBOT 1
 #define TWO_ENCODERS 0
 
 #define COMPRESSOR 0
@@ -34,14 +34,14 @@ public:
 	static const int ANALOG_INPUT_MODULE = 1;
 	static const int GYRO_CHANNEL = 1;
 	static const int DT_LEFT_B_PWM = 1;
-	static const int DT_RIGHT_B_PWM = 2;
+	static const int DT_RIGHT_B_PWM = 3;
 #if PRODUCTION_ROBOT
 	static const int WHEEL_DIAMETER = 5;
 	static const int ENCODER_TICKS_PER_ROTATION = 256;
-	static const int RIGHT_ENCODER_CHANNEL1 = 3;
+	static const int RIGHT_ENCODER_CHANNEL1 = 2;
 	static const int RIGHT_ENCODER_CHANNEL2 = 4;
-	static const int DT_LEFT_F = 3;
-	static const int DT_RIGHT_F = 4;
+	static const int DT_LEFT_F_PWM = 2;
+	static const int DT_RIGHT_F_PWM = 4;
 #else
 	static const int WHEEL_DIAMETER = 4;
 	static const int ENCODER_TICKS_PER_ROTATION = 128;
