@@ -6,7 +6,7 @@ bhs_Robot::bhs_Robot()
 {
 	Watchdog w;
 	w.Kill();
-
+	
 	m_sensorInput = new bhs_SensorInput(&m_gd);
 	m_autonomousInput = new bhs_Autonomous(&m_gd);
 	m_driverInput = new bhs_DriverInput(&m_gd);
@@ -17,6 +17,8 @@ bhs_Robot::bhs_Robot()
 }
 
 bhs_Robot::~bhs_Robot() {
+	delete m_comms;
+	
 	delete m_sensorInput;
 	delete m_autonomousInput;
 	delete m_driverInput;

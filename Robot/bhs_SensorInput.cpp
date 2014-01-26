@@ -36,5 +36,5 @@ void bhs_SensorInput::run() {
 	m_gd->mdd_rightEncoderCounts = m_rightEncoder.Get();
 #endif
 	m_gd->mdd_gyroAngle = m_gyro.GetAngle();
-	printf("Gyro angle: %f\n", m_gd->mdd_gyroAngle);
+	//printf("Gyro angle: %f\n", m_gd->mdd_gyroAngle);
 }

@@ -51,21 +51,20 @@ float bhs_Autonomous::encoderToInches(int a_encoders) {
 }
 
 void bhs_Autonomous::moveStraight(int p_dist) {
-	int target = p_dist;
+	int target = -p_dist;
 
 	switch(m_state) {
 	case k_forward:
 		float current = encoderToInches(m_gd->mdd_leftEncoderCounts);
 		float pidOutput = m_straightPID.getPID(current, target);
-		float ivalue = m_straightPID.getI(1) * bhs_Constants::PID_STRAIGHT_I;
 
-		printf("%f\t\t%d\t\t%f\t\t%f\n", current, target, pidOutput, ivalue);
+		printf("%f\t\t%d\t\t%f\n", current, target, pidOutput);
 
 		m_gd->mdd_joystick1X = 0;
 		m_gd->mdd_joystick1Y = pidOutput;
 		m_gd->mdd_joystick2X = 0;
 		m_gd->mdd_joystick2Y = pidOutput;
-		if(fabs(m_gd->mdd_leftEncoderCounts-target) == k_pidThreshold) {
+		if(fabs(fabs(m_gd->mdd_leftEncoderCounts)-target) == k_pidThreshold) {
 			m_state = k_finished;
 		}
 		break;

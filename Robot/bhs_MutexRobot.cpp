@@ -7,6 +7,8 @@ bhs_MutexRobot::bhs_MutexRobot()
 	, m_teleopInitialized(false)
 	, m_period(k_defaultPeriod)
 {
+	m_comms = new NetsWrapper();
+	
 	// configure for round-robin scheduling
 	kernelTimeSlice(sysClkRateGet() / 100); // 1/100th of a second - what each task gets for time slice
 	//taskDelay(sysClkRateGet() / 2);
@@ -19,7 +21,9 @@ bhs_MutexRobot::bhs_MutexRobot()
 	taskSpawn("BHS_Timer_Task", 0, 0, 20000, (FUNCPTR) bhs_MutexRobot::timerTask, (int) this, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 }
 
-bhs_MutexRobot::~bhs_MutexRobot() {}
+bhs_MutexRobot::~bhs_MutexRobot() {
+	delete m_comms;
+}
 
 void bhs_MutexRobot::SetPeriod(double p_period) {
 	m_period = p_period;
@@ -75,6 +79,7 @@ void bhs_MutexRobot::StartCompetition() {
 }
 
 void bhs_MutexRobot::RobotInit() {
+	m_comms->init();
 	semGive(m_startSem); // configure blocking mutex to allow other task to start
 }
 

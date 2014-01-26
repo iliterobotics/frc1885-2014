@@ -65,7 +65,7 @@ void bhs_OutputManager::runMotors() {
 	m_driveRightF.SetSpeed(m_gd->mdd_driveRightPower);
 #endif	// DRIVETRAIN
 #if INTAKE
-	printf("intake: %f\t", m_gd->mdi_intakePower);
+	//printf("intake: %f\t", m_gd->mdi_intakePower);
 	m_intakeRoller.SetSpeed(m_gd->mdi_intakePower);
 #endif	// INTAKE
 }

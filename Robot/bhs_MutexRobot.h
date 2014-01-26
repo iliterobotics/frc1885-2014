@@ -6,6 +6,8 @@
 
 #include "RobotBase.h"
 
+#include "NetsWrapper.h"
+
 #include "bhs_Robot.h"
 
 class bhs_MutexRobot : public RobotBase {
@@ -37,6 +39,8 @@ class bhs_MutexRobot : public RobotBase {
 		static void timerTask(bhs_MutexRobot*);
 
 	private:
+		NetsWrapper* m_comms;
+		
 		bhs_Robot m_robot;
 
 		bool m_disabledInitialized;

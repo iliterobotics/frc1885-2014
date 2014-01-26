@@ -1,12 +1,12 @@
 #ifndef BHS_CONSTANTS_H_
 #define BHS_CONSTANTS_H_
 
-#define PRODUCTION_ROBOT 1
+#define PRODUCTION_ROBOT 0
 #define TWO_ENCODERS 0
 
 #define COMPRESSOR 0
 #define DRIVETRAIN 1
-#define INTAKE 0
+#define INTAKE 1
 #define TUSKS 0
 #define KICKER 0
 #define LAUNCHER 0
