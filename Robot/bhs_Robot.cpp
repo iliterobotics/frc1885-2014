@@ -2,10 +2,11 @@
 
 bhs_Robot::bhs_Robot() 
 	: m_gd()
-	, m_outputManager(&m_gd)
 {
 	Watchdog w;
 	w.Kill();
+	
+	m_outputManager = new bhs_OutputManager(&m_gd);
 	
 	m_sensorInput = new bhs_SensorInput(&m_gd);
 	m_autonomousInput = new bhs_Autonomous(&m_gd);
@@ -17,8 +18,6 @@ bhs_Robot::bhs_Robot()
 }
 
 bhs_Robot::~bhs_Robot() {
-	delete m_comms;
-	
 	delete m_sensorInput;
 	delete m_autonomousInput;
 	delete m_driverInput;
@@ -58,5 +57,5 @@ void bhs_Robot::normalRobotProcessing() {
 	m_intake->run();
 	m_tusks->run();
 	
-	m_outputManager.run();
+	m_outputManager->run();
 }

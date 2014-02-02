@@ -32,6 +32,7 @@ class bhs_Robot {
 		void normalRobotProcessing();
 
 		bhs_GlobalData m_gd;
+		bhs_OutputManager* m_outputManager;
 
 		bhs_SensorInput* m_sensorInput;
 		bhs_Autonomous* m_autonomousInput;
@@ -41,7 +42,7 @@ class bhs_Robot {
 		bhs_Intake* m_intake;
 		bhs_Tusks* m_tusks;
 
-		bhs_OutputManager m_outputManager;
+		
 };
 
 #endif // BHS_ROBOT_H_

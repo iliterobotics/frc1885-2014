@@ -25,8 +25,8 @@ void bhs_DriveTrain::run() {
 }
 
 void bhs_DriveTrain::tankDrive() {
-	m_dd->mdd_driveLeftPower = -deadzone(m_dd->mdd_joystick1Y);
-	m_dd->mdd_driveRightPower = deadzone(m_dd->mdd_joystick2Y);
+	m_dd->mdd_driveLeftPower = deadzone(m_dd->mdd_joystick1Y);
+	m_dd->mdd_driveRightPower = -deadzone(m_dd->mdd_joystick2Y);
 }
 
 void bhs_DriveTrain::arcadeDrive() {

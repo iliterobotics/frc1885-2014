@@ -7,6 +7,7 @@
 
 #include "bhs_GlobalData.h"
 #include "PID.h"
+#include "bhs_SensorInput.h"
 
 #define REAL_AUTO 0
 
@@ -21,6 +22,7 @@ public:
 private:
 	typedef enum {
 		k_forward = 0,
+		k_turn = 0,
 		k_waitHot,
 		k_shoot,
 		k_finished
@@ -28,6 +30,7 @@ private:
 
 	bhs_GlobalData* m_gd;
 	State m_state;
+	PID m_distPID;
 	PID m_straightPID;
 
 #if not PRODUCTION_ROBOT
@@ -37,7 +40,7 @@ private:
 	static const float k_maxVel = 0.8;
 	static const int k_dist = 180;			// 180 inches, 15 feet
 	static const int k_forwardDist = 180;	// 
-	static const int k_pidThreshold = 0;
+	static const int k_pidThreshold = 1;
 
 	void reset();
 	int inchesToEncoder(float a_inches);

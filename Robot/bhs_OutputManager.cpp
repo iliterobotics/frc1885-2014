@@ -7,8 +7,10 @@ bhs_OutputManager::bhs_OutputManager(bhs_GlobalData* a_gd)
 #if DRIVETRAIN
 	: m_driveLeftB(bhs_Constants::DT_LEFT_B_PWM)
 	, m_driveRightB(bhs_Constants::DT_RIGHT_B_PWM)
+#if PRODUCTION_ROBOT
 	, m_driveLeftF(bhs_Constants::DT_LEFT_F_PWM)
 	, m_driveRightF(bhs_Constants::DT_RIGHT_F_PWM)
+#endif
 #endif	// DRIVETRAIN
 #if INTAKE
 	, m_intakeRoller(bhs_Constants::INTAKE_PWM)
@@ -49,7 +51,7 @@ void bhs_OutputManager::run() {
 	runMotors();
 	runPneumatics();
 	
-	printf("\n");
+	//printf("\n");
 }
 
 
@@ -61,8 +63,10 @@ void bhs_OutputManager::runMotors() {
 	//printf("dtLeft: %f\tdtRight: %f\t", m_gd->mdd_driveLeftPower, m_gd->mdd_driveRightPower);
 	m_driveLeftB.SetSpeed(m_gd->mdd_driveLeftPower);
 	m_driveRightB.SetSpeed(m_gd->mdd_driveRightPower);
+#if PRODUCTION_ROBOT
 	m_driveLeftF.SetSpeed(m_gd->mdd_driveLeftPower);
 	m_driveRightF.SetSpeed(m_gd->mdd_driveRightPower);
+#endif
 #endif	// DRIVETRAIN
 #if INTAKE
 	//printf("intake: %f\t", m_gd->mdi_intakePower);
