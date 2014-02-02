@@ -10,40 +10,41 @@
 #include "bhs_GlobalData.h"
 
 class bhs_OutputManager {
-	public:
-		typedef enum MotorID { 
-		};
+        public:
+                typedef enum MotorID { 
+                };
 
-		bhs_OutputManager(bhs_GlobalData*);
-		~bhs_OutputManager();
+                bhs_OutputManager(bhs_GlobalData*);
+                ~bhs_OutputManager();
 
-		void init();
-		void run();
+                void init();
+                void run();
 
-	private:
-		bhs_GlobalData* m_gd;
+        private:
+                bhs_GlobalData* m_gd;
 
-		void safety();
-		void runMotors();
-		void runPneumatics();
+                void safety();
+                void runMotors();
+                void runPneumatics();
 
 #if COMPRESSOR
-		Compressor m_compressor;
-#endif	// COMPRESSOR
+                Compressor m_compressor;
+#endif        // COMPRESSOR
 #if DRIVETRAIN
-		Talon m_driveLeftB, m_driveRightB;
-#if PRODUCTION_ROBOT
-		Talon m_driveLeftF, m_driveRightF;
-#endif
-#endif	// DRIVETRAIN
+                Talon m_driveLeftB, m_driveRightB, m_driveLeftF, m_driveRightF;
+#endif        // DRIVETRAIN
 #if INTAKE
-		Talon m_intakeRoller;
-#endif	// INTAKE
+                Talon m_intakeRoller;
+#endif        // INTAKE
 #if TUSKS
-		DoubleSolenoid m_leftTusk, m_rightTusk;
-#endif	// TUSKS
-		
-		bool* m_reversedMotors;
+                DoubleSolenoid m_leftTusk, m_rightTusk;
+#endif        // TUSKS
+                
+                bool* m_reversedMotors;
+#if SHOOTER
+                Relay m_motor;
+                Solenoid m_pneumatic;
+#endif        // SHOOTER
 };
 
 #endif //BHS_OUTPUT_MANAGER_H_

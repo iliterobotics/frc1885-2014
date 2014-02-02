@@ -5,10 +5,13 @@
 
 class bhs_GDShooter {
 public:
-	bhs_GDShooter();
+        bhs_GDShooter();
 
-	bool mds_shoot;
+        bool mds_mFoward;
+        bool mds_mBackward;
+        bool mds_pOn;
 
+        Relay::Value mds_motorOutput;
 };
 
-#endif	// BHS_GD_SHOOTER_H_
+#endif        // BHS_GD_SHOOTER_H_

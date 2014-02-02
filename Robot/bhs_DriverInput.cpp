@@ -30,4 +30,8 @@ void bhs_DriverInput::run() {
 
 	m_gd->mdt_tusksUp = m_controller.GetRawButton(TUSKS_UP);
 	m_gd->mdt_tusksDown = m_controller.GetRawButton(TUSKS_DOWN);
+
+	// Shooter
+    m_gd->mds_mshooter = m_controller.GetRawButton(SHOOTER_MOTOR);
+    m_gd->mds_pshooter = m_controller.GetRawButton(SHOOTER_PNEUMATIC);
 }

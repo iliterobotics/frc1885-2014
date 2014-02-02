@@ -24,6 +24,9 @@ class bhs_DriverInput {
 		static const UINT32 TUSKS_UP = 6;
 		static const UINT32 TUSKS_DOWN = 8;
 		
+		//Shooter
+        static const UINT32 SHOOTER_RELAY = 9;
+        static const UINT32 SHOOTER_PNEUMATIC = 10;
 		
 		bhs_DriverInput(bhs_GlobalData*);
 		virtual ~bhs_DriverInput();

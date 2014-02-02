@@ -61,6 +61,10 @@ public:
 	static const int RIGHT_TUSK_REVERSE_SOLENOID = 4;
 #endif	// TUSKS
 
+#if SHOOTER
+        static const int SHOOTER_RELAY = 1;
+        static const int SHOOTER_PNEUMATIC = 2;
+#endif // SHOOTER
 
 #if KICKER
 	static const int KICKER_SOLENOID = 3;
