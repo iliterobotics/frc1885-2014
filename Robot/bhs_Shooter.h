@@ -1,7 +1,9 @@
 #ifndef BHS_SHOOTER_H_
 #define BHS_SHOOTER_H_
 
-class bhs_Shooter() {
+#include "bhs_GDShooter.h"
+
+class bhs_Shooter {
 	public:
 		bhs_Shooter(bhs_GDShooter*);
 		~bhs_Shooter();
@@ -11,3 +13,4 @@ class bhs_Shooter() {
 	private:
 		bhs_GDShooter* m_ds;
 };
+#endif

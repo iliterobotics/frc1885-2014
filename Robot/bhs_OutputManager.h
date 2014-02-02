@@ -3,8 +3,8 @@
 
 #include "Compressor.h"
 #include "Talon.h"
-#include "Solenoid.h"
 #include "Relay.h"
+#include "DoubleSolenoid.h"
 
 #include "bhs_Constants.h"
 #include "bhs_GlobalData.h"
@@ -39,11 +39,9 @@ class bhs_OutputManager {
 #if TUSKS
                 DoubleSolenoid m_leftTusk, m_rightTusk;
 #endif        // TUSKS
-                
-                bool* m_reversedMotors;
 #if SHOOTER
-                Relay m_motor;
-                Solenoid m_pneumatic;
+                Relay m_highShooter;
+                DoubleSolenoid m_lowShooter;
 #endif        // SHOOTER
 };
 
