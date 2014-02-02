@@ -5,6 +5,7 @@
 #include "Talon.h"
 #include "Relay.h"
 #include "DoubleSolenoid.h"
+#include "Solenoid.h"
 
 #include "bhs_Constants.h"
 #include "bhs_GlobalData.h"
@@ -40,8 +41,9 @@ class bhs_OutputManager {
                 DoubleSolenoid m_leftTusk, m_rightTusk;
 #endif        // TUSKS
 #if SHOOTER
-                Relay m_highShooter;
-                DoubleSolenoid m_lowShooter;
+                Relay m_wench;
+                DoubleSolenoid m_lowGoal;
+                Solenoid m_highGoalRelease;
 #endif        // SHOOTER
 };
 

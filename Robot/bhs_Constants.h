@@ -8,8 +8,7 @@
 #define DRIVETRAIN 1
 #define INTAKE 1
 #define TUSKS 0
-#define KICKER 0
-#define LAUNCHER 0
+#define SHOOTER 1
 
 #define BHS_GYRO 0
 
@@ -62,18 +61,12 @@ public:
 #endif	// TUSKS
 
 #if SHOOTER
-        static const int SHOOTER_RELAY = 1;
-        static const int SHOOTER_PNEUMATIC = 2;
+		static const int SHOOTER_WENCH_LIMIT_CHANNEL = 6;
+        static const int SHOOTER_WENCH_RELAY = 2;
+        static const int SHOOTER_LOW_GOAL_FORWARD_SOLENOID = 5;
+        static const int SHOOTER_LOW_GOAL_REVERSE_SOLENOID = 6;
+        static const int SHOOTER_HIGH_GOAL_SOLENOID = 7;
 #endif // SHOOTER
-
-#if KICKER
-	static const int KICKER_SOLENOID = 3;
-#endif
-
-
-#if LAUNCHER
-
-#endif	// LAUNCHER
 };
 
 #endif // BHS_CONSTANTS_H_

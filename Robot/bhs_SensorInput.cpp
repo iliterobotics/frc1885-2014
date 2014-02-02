@@ -8,6 +8,9 @@ bhs_SensorInput::bhs_SensorInput(bhs_GlobalData* a_gd)
 	, m_rightEncoder(bhs_Constants::DIGITAL_INPUT_MODULE, 3, 4)// bhs_Constants::RIGHT_ENCODER_CHANNEL1, bhs_Constants::RIGHT_ENCODER_CHANNEL2)
 #endif	
 	, m_gyro(bhs_Constants::ANALOG_INPUT_MODULE, bhs_Constants::GYRO_CHANNEL)
+#if SHOOTER
+	, m_wenchLimitSwitch(bhs_Constants::SHOOTER_WENCH_LIMIT_CHANNEL)
+#endif
 {
 	m_gd = a_gd;
 
@@ -39,4 +42,5 @@ void bhs_SensorInput::run() {
 	m_gd->mdd_gyroAngle = m_gyro.GetAngle();
 	//printf("left encoder: %d\t\tright encoder: %d\n", m_gd->mdd_leftEncoderCounts, m_gd->mdd_rightEncoderCounts);
 	//printf("gyro angle: %f\n", m_gd->mdd_gyroAngle);
+	m_gd->mds_wenchLimit = m_wenchLimitSwitch.Get();
 }

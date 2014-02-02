@@ -10,13 +10,17 @@ class bhs_GDShooter {
 public:
 	bhs_GDShooter();
 
-	bool mds_highGoalForward;
-	bool mds_highGoalReverse;
+	bool mds_wenchLimit;
+	
+	bool mds_wenchForward;
+	bool mds_wenchReverse;
 	bool mds_lowGoalForward;
 	bool mds_lowGoalReverse;
+	bool mds_highGoalRelease;
 	
-	Relay::Value mds_highGoalOutput;
+	Relay::Value mds_wenchOutput;
 	DoubleSolenoid::Value mds_lowGoalOutput;
+	bool mds_highGoalOutput;
 };
 
 #endif        // BHS_GD_SHOOTER_H_
