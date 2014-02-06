@@ -9,19 +9,11 @@ bhs_Shooter::~bhs_Shooter() {
 }
 
 void bhs_Shooter::run() {
-	if(m_ds->mds_highGoalForward) {
-		m_ds->mds_highGoalOutput = Relay::kForward;
-	} else if(m_ds->mds_highGoalReverse) {
-		m_ds->mds_highGoalOutput = Relay::kReverse;
-	} else {
-		m_ds->mds_highGoalOutput = Relay::kOff;
-	}
+	if(!m_ds->mds_wenchLimit) {
+		m_ds->mds_wenchOutput = m_dds->wench;
+	} 
 	
-	if(m_ds->mds_lowGoalForward) {
-		m_ds->mds_lowGoalOutput = DoubleSolenoid::kForward;
-	} else if(m_ds->mds_lowGoalReverse) {
-		m_ds->mds_lowGoalOutput = DoubleSolenoid::kReverse;
-	} else {
-		m_ds->mds_lowGoalOutput = DoubleSolenoid::kOff;
-	}
+	m_ds->mds_lowGoalOutput = m_dds->mds_lowGoal;
+	
+	m_ds->mds_highGoalOutput = m_ds->mds_highGoalRelease;
 }

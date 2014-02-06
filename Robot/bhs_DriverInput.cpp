@@ -32,8 +32,7 @@ void bhs_DriverInput::run() {
 	m_gd->mdt_tusksDown = m_controller.GetRawButton(TUSKS_DOWN);
 
 	// Shooter
-	m_gd->mds_highGoalForward = m_controller.GetRawButton(HIGH_GOAL_FORWARD);
-	m_gd->mds_highGoalReverse = m_controller.GetRawButton(HIGH_GOAL_REVERSE);
-	m_gd->mds_lowGoalForward = m_controller.GetRawButton(LOW_GOAL_FORWARD);
-	m_gd->mds_lowGoalReverse = m_controller.GetRawButton(LOW_GOAL_REVERSE);
+	m_gd->mds_highGoalRelease = m_controller.GetRawButton(HIGH_GOAL_RELEASE);
+	m_gd->mds_lowGoalForward = m_controller.GetRawButton(LOW_GOAL);
+	m_gd->mds_wench = m_controller.GetRawButton(WENCH);
 }

@@ -17,16 +17,17 @@ bhs_OutputManager::bhs_OutputManager(bhs_GlobalData* a_gd)
 , m_leftTusk(bhs_Constants::LEFT_TUSK_FORWARD_SOLENOID, bhs_Constants::LEFT_TUSK_REVERSE_SOLENOID)
 , m_rightTusk(bhs_Constants::RIGHT_TUSK_FORWARD_SOLENOID, bhs_Constants::RIGHT_TUSK_REVERSE_SOLENOID)
 #endif        // TUSKS
+#if SHOOTER
+	, m_wench(bhs_Constants::SHOOTER_WENCH_RELAY)
+    , m_lowGoal(bhs_Constants::SHOOTER_LOW_GOAL_SOLENOID)
+    , m_highGoalRelease(bhs_Constants::SHOOTER_HIGH_GOAL_SOLENOID)
+#endif 		// SHOOTER
 {
 	m_gd = a_gd;
 
 #if COMPRESSOR
 	m_compressor.Start();        
 #endif
-#if SHOOTER
-	,m_motor(bhs_Constants::SHOOTER_RELAY, Relay::Direction kBothDirections)
-        		,m_pneumatic(bhs_Constants::SHOOTER_PNEUMATIC)
-#endif 
 }
 
 bhs_OutputManager::~bhs_OutputManager() {
@@ -47,8 +48,9 @@ void bhs_OutputManager::init() {
 	m_rightTusk.Set(DoubleSolenoid::kOff);
 #endif        // TUSKS
 #if SHOOTER
-	m_motor.Set(Relay::Value kOff);
-	m_pneumatic.Set(false);
+	m_wench.Set(0);
+	m_lowGoal.Set(false);
+	m_highGoalRelease.Set(false);
 #endif
 }
 
@@ -77,7 +79,7 @@ void bhs_OutputManager::runMotors() {
 	m_intakeRoller.SetSpeed(m_gd->mdi_intakePower);
 #endif        // INTAKE
 #if SHOOTER
-	m_highShooter.Set(m_gd->mds_highGoalOutput);
+	m_wench.Set(m_gd->mds_wenchOutput);
 #endif
 }
 
@@ -93,6 +95,7 @@ void bhs_OutputManager::runPneumatics() {
 	m_rightTusk.Set(m_gd->mdt_rightTuskOutput);
 #endif
 #if SHOOTER
-	m_lowShooter.Set(m_gd->mds_lowGoalOutput);
+	m_lowGoal.Set(m_gd->mds_lowGoalOutput);
+	m_highGoalRelease.Set(m_gd->mds_highGoalOutput);
 #endif
 }

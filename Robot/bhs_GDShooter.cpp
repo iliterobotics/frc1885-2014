@@ -1,11 +1,9 @@
 #include "bhs_GDShooter.h"
 
 bhs_GDShooter::bhs_GDShooter() {
-	mds_highGoalForward = false;
-	mds_highGoalReverse = false;
-	mds_lowGoalForward = false;
-	mds_lowGoalReverse = false;
+	mds_wenchLimit = false;
 	
-	mds_highGoalOutput = Relay::kOff;
-	mds_lowGoalOutput = DoubleSolenoid::kOff;
+	mds_wenchOutput = 0;
+	mds_lowGoalOutput = false;
+	mds_highGoalOutput = false;
 }

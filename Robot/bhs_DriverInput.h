@@ -25,10 +25,9 @@ class bhs_DriverInput {
 		static const UINT32 TUSKS_DOWN = 8;
 		
 		//Shooter
-        static const UINT32 HIGH_GOAL_FORWARD = 9;
-        static const UINT32 HIGH_GOAL_REVERSE = 10;
-        static const UINT32 LOW_GOAL_FORWARD = 9;
-        static const UINT32 LOW_GOAL_REVERSE = 10;
+		static const UINT32 HIGH_GOAL_RELEASE = 9;
+		static const UINT32 LOW_GOAL = 1;
+		static const UINT32 WENCH = 2;
 		
 		bhs_DriverInput(bhs_GlobalData*);
 		virtual ~bhs_DriverInput();
