@@ -17,6 +17,12 @@ class bhs_DriverInput {
 		
 		static const UINT32 BUTTON_USE_ARCADE_DRIVE = 3;
 		
+		//Shooter
+		static const UINT32 HIGH_GOAL_RELEASE = 9;
+		static const UINT32 LOW_GOAL_FORWARD = 1;
+        static const UINT32 LOW_GOAL_REVERSE = 2;
+        static const UINT32 WENCH_FORWARD = 3;
+        static const UINT32 WENCH_REVERSE = 4;
 		
 		bhs_DriverInput(bhs_GlobalData*);
 		virtual ~bhs_DriverInput();

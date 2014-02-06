@@ -15,21 +15,11 @@ class bhs_GDDrivetrain {
 		bool mdd_arcadeDrive;
 
 		float mdd_gyroAngle;
-		float mdd_gyroBiasVoltage;
-		int mdd_encoderCounts;
-
-		bool mdd_startDriveAngle;
-		bool mdd_stopDriveAngle;
-		float mdd_desiredAngle;
-		float mdd_driveAnglePIDAddition;
-		double mdd_driveAngleTimer;
+		int mdd_leftEncoderCounts;
+		int mdd_rightEncoderCounts;
 
 		float mdd_driveLeftPower;
 		float mdd_driveRightPower;
-		
-		float m_minSpeedKinetic;
-		float m_minSpeedStatic;
-	
 };
 
 #endif //BHS_GD_DRIVETRAIN_H_

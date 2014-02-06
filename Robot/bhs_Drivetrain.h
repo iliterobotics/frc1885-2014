@@ -1,9 +1,16 @@
 #ifndef BHS_DRIVETRAIN_H_
 #define BHS_DRIVETRAIN_H_
 
+#include <math.h>
+
 #include "bhs_Constants.h"
+<<<<<<< HEAD
 #include "bhs_GlobalData.h"
 #include "bhs_PID.h"
+=======
+#include "bhs_GDDrivetrain.h"
+#include "PID.h"
+>>>>>>> origin/silut
 
 class bhs_DriveTrain  {
 	public:
@@ -15,12 +22,12 @@ class bhs_DriveTrain  {
 
 	private:
 		bhs_GDDrivetrain* m_dd;
-		bhs_PID m_driveStraightPID;
-		bool m_driveStraight;
-		float m_desiredAngle;
+		PID m_driveStraightPID;
 
-		void arcadeDrive();
 		void tankDrive();
+		void arcadeDrive();
+			void driveStraight();
+				void driveStraightReset();
 
 		float limit(float);
 		float deadzone(float);

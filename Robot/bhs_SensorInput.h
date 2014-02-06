@@ -2,6 +2,11 @@
 #define BHS_SENSOR_INPUT_H_
 
 #include "Encoder.h"
+<<<<<<< HEAD
+=======
+#include "Gyro.h"
+#include "DigitalInput.h"
+>>>>>>> origin/silut
 
 #include "bhs_Constants.h"
 #include "bhs_GlobalData.h"
@@ -28,8 +33,19 @@ class bhs_SensorInput {
 		bhs_GlobalData* m_gd;
 
 		// Sensor declarations go here
+<<<<<<< HEAD
 		Encoder m_encoder;
 
+=======
+		Encoder m_leftEncoder;
+#if TWO_ENCODERS
+		Encoder m_rightEncoder;
+#endif
+		Gyro m_gyro;
+#if SHOOTER
+		DigitalInput m_wenchLimitSwitch;
+#endif
+>>>>>>> origin/silut
 };
 
 #endif //BHS_SENSOR_INPUT_H_

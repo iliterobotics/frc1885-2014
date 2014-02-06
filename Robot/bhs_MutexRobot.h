@@ -39,7 +39,9 @@ class bhs_MutexRobot : public RobotBase {
 		static void timerTask(bhs_MutexRobot*);
 
 	private:
-		bhs_Robot m_robot;
+		//NetsWrapper* m_comms;
+		
+		bhs_Robot* m_robot;
 
 		bool m_disabledInitialized;
 		bool m_autonomousInitialized;

@@ -2,11 +2,12 @@
 
 bhs_Robot::bhs_Robot() 
 	: m_gd()
-	, m_outputManager(&m_gd)
 {
 	Watchdog w;
 	w.Kill();
-
+	
+	m_outputManager = new bhs_OutputManager(&m_gd);
+	
 	m_sensorInput = new bhs_SensorInput(&m_gd);
 	m_autonomousInput = new bhs_Autonomous(&m_gd);
 	m_driverInput = new bhs_DriverInput(&m_gd);
@@ -52,7 +53,7 @@ void bhs_Robot::teleop() {
 void bhs_Robot::normalRobotProcessing() {
 	m_drivetrain->run();
 	
-	m_outputManager.run();
+	m_outputManager->run();
 }
 
 void bhs_Robot::testInit()

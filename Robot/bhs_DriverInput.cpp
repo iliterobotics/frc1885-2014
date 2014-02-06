@@ -22,6 +22,7 @@ void bhs_DriverInput::run() {
 	m_gd->mdd_joystick2Y = -m_joystick2.GetAxis(Joystick::kYAxis);
 
 	m_gd->mdd_buttonUseArcadeDrive = m_joystick1.GetRawButton(BUTTON_USE_ARCADE_DRIVE);
+<<<<<<< HEAD
 	
 	printf("DriverInput:\n1x: %f\t1y: %f\t2x: %f\t2y: %f\tarcade: %d\n\n",
 			m_gd->mdd_joystick1X,
@@ -29,4 +30,20 @@ void bhs_DriverInput::run() {
 			m_gd->mdd_joystick2X,
 			m_gd->mdd_joystick2Y,
 			m_gd->mdd_buttonUseArcadeDrive);
+=======
+
+	// Intake (roller and tusks)
+	m_gd->mdi_intakeForward = m_controller.GetRawButton(INTAKE_FORWARD);
+	m_gd->mdi_intakeReversed = m_controller.GetRawButton(INTAKE_REVERSED);
+
+	m_gd->mdt_tusksUp = m_controller.GetRawButton(TUSKS_UP);
+	m_gd->mdt_tusksDown = m_controller.GetRawButton(TUSKS_DOWN);
+
+	// Shooter
+	m_gd->mds_highGoalRelease = m_controller.GetRawButton(HIGH_GOAL_RELEASE);
+	m_gd->mds_lowGoalForward = m_controller.GetRawButton(LOW_GOAL_FORWARD);
+	m_gd->mds_lowGoalReverse = m_controller.GetRawButton(LOW_GOAL_REVERSE);
+	m_gd->mds_wenchForward = m_controller.GetRawButton(WENCH_FORWARD);
+	m_gd->mds_wenchReverse = m_controller.GetRawButton(WENCH_REVERSE);
+>>>>>>> origin/silut
 }

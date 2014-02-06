@@ -35,6 +35,7 @@ class bhs_Robot {
 		void normalRobotProcessing();
 
 		bhs_GlobalData m_gd;
+		bhs_OutputManager* m_outputManager;
 
 		bhs_SensorInput* m_sensorInput;
 		bhs_Autonomous* m_autonomousInput;
@@ -42,9 +43,13 @@ class bhs_Robot {
 		
 		bhs_DriveTrain* m_drivetrain;
 
+<<<<<<< HEAD
 		bhs_OutputManager m_outputManager;
 		
 		bhs_Test* m_testInput;
+=======
+		
+>>>>>>> origin/silut
 };
 
 #endif // BHS_ROBOT_H_
