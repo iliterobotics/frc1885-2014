@@ -1,4 +1,4 @@
-#include 'bhs_Actuator.h'
+#include "bhs_Actuator.h"
 
 bhs_Actuator::bhs_Actuator(ActuatorType p_type, UINT32 p_channel) {
 	if(p_type == k_talon) {
@@ -35,14 +35,14 @@ bhs_Actuator::~bhs_Actuator() {
 void bhs_Actuator::move(float p_speed) {
 	switch (m_type) {
 		case k_talon:
-			m_talon.Set(float);
+			m_talon.SetSpeed(p_speed);
 		break;
 
 		case k_relay:
 			if(p_speed == 0) {
 				m_relay.Set(Relay::kOff);
 			} else if(p_speed < 0) {
-				m_relay.Set(Relay::kReversed);
+				m_relay.Set(Relay::kReverse);
 			} else {
 				m_relay.Set(Relay::kForward);
 			}
@@ -55,14 +55,14 @@ void bhs_Actuator::move(float p_speed) {
 				m_solenoid.Set(false);
 			} else {
 				m_solenoid.Set(true);
-			})
+			}
 		break;
 
 		case k_doubleSolenoid:
 			if(p_speed == 0) {
 				m_doubleSolenoid.Set(m_doubleSolenoid.Get());
 			} else if(p_speed < 0) {
-				m_doubleSolenoid.Set(DoubleSolenoid::kReversed);
+				m_doubleSolenoid.Set(DoubleSolenoid::kReverse);
 			} else {
 				m_doubleSolenoid.Set(DoubleSolenoid::kForward);
 			}
