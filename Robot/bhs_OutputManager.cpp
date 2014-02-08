@@ -5,7 +5,7 @@ bhs_OutputManager::bhs_OutputManager(bhs_GlobalData* a_gd)
 : m_compressor(bhs_Constants::PRESSURE_SWITCH, bhs_Constants::COMPRESSOR_RELAY)
 #endif        // COMRPESSOR
 #if DRIVETRAIN
-: m_driveLeftB(bhs_Constants::DT_LEFT_B_PWM)
+, m_driveLeftB(bhs_Constants::DT_LEFT_B_PWM)
 , m_driveRightB(bhs_Constants::DT_RIGHT_B_PWM)
 , m_driveLeftF(bhs_Constants::DT_LEFT_F_PWM)
 , m_driveRightF(bhs_Constants::DT_RIGHT_F_PWM)
@@ -75,7 +75,7 @@ void bhs_OutputManager::runMotors() {
 	m_driveRightF.SetSpeed(m_gd->mdd_driveRightPower);
 #endif        // DRIVETRAIN
 #if INTAKE
-	printf("intake: %f\t", m_gd->mdi_intakePower);
+	//printf("intake: %f\t", m_gd->mdi_intakePower);
 	m_intakeRoller.SetSpeed(m_gd->mdi_intakePower);
 #endif        // INTAKE
 #if SHOOTER
@@ -90,7 +90,7 @@ void bhs_OutputManager::runPneumatics() {
 	}
 #endif
 #if TUSKS
-	printf("leftTusk: %f\trightTusk: %f\t", m_gd->mdt_leftTuskOutput, m_gd->mdt_rightTuskOutput);
+	//printf("leftTusk: %f\trightTusk: %f\t", m_gd->mdt_leftTuskOutput, m_gd->mdt_rightTuskOutput);
 	m_leftTusk.Set(m_gd->mdt_leftTuskOutput);
 	m_rightTusk.Set(m_gd->mdt_rightTuskOutput);
 #endif

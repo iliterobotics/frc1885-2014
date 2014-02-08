@@ -4,10 +4,10 @@
 #define PRODUCTION_ROBOT 1
 #define TWO_ENCODERS 1
 
-#define COMPRESSOR 0
+#define COMPRESSOR 1
 #define DRIVETRAIN 1
 #define INTAKE 1
-#define TUSKS 0
+#define TUSKS 1
 #define SHOOTER 1
 
 #define BHS_GYRO 0
@@ -15,7 +15,7 @@
 class bhs_Constants {
 public:
 #if COMPRESSOR
-	static const int PRESSURE_SWITCH = 5;
+	static const int PRESSURE_SWITCH = 9;
 	static const int COMPRESSOR_RELAY = 1;
 #endif
 
@@ -61,8 +61,8 @@ public:
 #endif	// TUSKS
 
 #if SHOOTER
-		static const int SHOOTER_WENCH_LIMIT_CHANNEL = 6;
-        static const int SHOOTER_WENCH_RELAY = 2;
+		static const int SHOOTER_WENCH_LIMIT_CHANNEL = 10;
+        static const int SHOOTER_WENCH_RELAY = 6;
         static const int SHOOTER_LOW_GOAL_SOLENOID = 5;
         static const int SHOOTER_HIGH_GOAL_SOLENOID = 6;
 #endif // SHOOTER

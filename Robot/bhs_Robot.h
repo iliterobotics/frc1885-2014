@@ -14,6 +14,7 @@
 #include "bhs_Drivetrain.h"
 #include "bhs_Intake.h"
 #include "bhs_Tusks.h"
+#include "bhs_Shooter.h"
 
 #include "bhs_OutputManager.h"
 
@@ -41,6 +42,7 @@ class bhs_Robot {
 		bhs_DriveTrain* m_drivetrain;
 		bhs_Intake* m_intake;
 		bhs_Tusks* m_tusks;
+		bhs_Shooter* m_shooter;
 
 		
 };
