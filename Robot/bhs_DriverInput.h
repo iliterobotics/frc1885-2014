@@ -17,6 +17,7 @@ class bhs_DriverInput {
 		
 		// Drivetrain
 		static const UINT32 BUTTON_USE_ARCADE_DRIVE = 3;
+		static const UINT32 BUTTON_REVERSE_DRIVE = 4;
 
 		// Intake (roller and tusks)
 		static const UINT32 INTAKE_FORWARD = 5;

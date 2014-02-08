@@ -13,6 +13,7 @@ class bhs_GDDrivetrain {
 		float mdd_joystick2Y;
 		bool mdd_buttonUseArcadeDrive;
 		bool mdd_arcadeDrive;
+		bool mdd_reversed;
 
 		float mdd_gyroAngle;
 		int mdd_leftEncoderCounts;
