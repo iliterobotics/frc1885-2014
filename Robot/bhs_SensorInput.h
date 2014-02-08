@@ -3,6 +3,7 @@
 
 #include "Encoder.h"
 #include "Gyro.h"
+#include "DigitalInput.h"
 
 #include "bhs_Constants.h"
 #include "bhs_GlobalData.h"
@@ -26,9 +27,10 @@ class bhs_SensorInput {
 #if TWO_ENCODERS
 		Encoder m_rightEncoder;
 #endif
-		
 		Gyro m_gyro;
-
+#if SHOOTER
+		DigitalInput m_wenchLimitSwitch;
+#endif
 };
 
 #endif //BHS_SENSOR_INPUT_H_

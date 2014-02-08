@@ -1,12 +1,16 @@
 #include "bhs_MutexRobot.h"
 
 bhs_MutexRobot::bhs_MutexRobot()
-	: m_robot()
-	, m_disabledInitialized(false)
-	, m_autonomousInitialized(false)
-	, m_teleopInitialized(false)
-	, m_period(k_defaultPeriod)
 {
+	//m_comms = new NetsWrapper();
+	
+	m_robot = new bhs_Robot();
+	
+	m_disabledInitialized = false;
+	m_autonomousInitialized = false;
+	m_teleopInitialized = false;
+	m_period = k_defaultPeriod;
+	
 	// configure for round-robin scheduling
 	kernelTimeSlice(sysClkRateGet() / 100); // 1/100th of a second - what each task gets for time slice
 	//taskDelay(sysClkRateGet() / 2);
@@ -19,7 +23,9 @@ bhs_MutexRobot::bhs_MutexRobot()
 	taskSpawn("BHS_Timer_Task", 0, 0, 20000, (FUNCPTR) bhs_MutexRobot::timerTask, (int) this, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 }
 
-bhs_MutexRobot::~bhs_MutexRobot() {}
+bhs_MutexRobot::~bhs_MutexRobot() {
+	//delete m_comms;
+}
 
 void bhs_MutexRobot::SetPeriod(double p_period) {
 	m_period = p_period;
@@ -75,27 +81,28 @@ void bhs_MutexRobot::StartCompetition() {
 }
 
 void bhs_MutexRobot::RobotInit() {
+	//m_comms->init();
 	semGive(m_startSem); // configure blocking mutex to allow other task to start
 }
 
 void bhs_MutexRobot::DisabledInit() {
-	m_robot.disabledInit();
+	m_robot->disabledInit();
 }
 
 void bhs_MutexRobot::AutonomousInit() {
-	m_robot.autonomousInit();
+	m_robot->autonomousInit();
 }
 
 void bhs_MutexRobot::AutonomousPeriodic() {
-	m_robot.autonomous();
+	m_robot->autonomous();
 }
 
 void bhs_MutexRobot::TeleopInit() {
-	m_robot.teleopInit();
+	m_robot->teleopInit();
 }
 
 void bhs_MutexRobot::TeleopPeriodic() {
-	m_robot.teleop();
+	m_robot->teleop();
 }
 
 void bhs_MutexRobot::infiniteTimerTask() {

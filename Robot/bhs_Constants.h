@@ -2,30 +2,29 @@
 #define BHS_CONSTANTS_H_
 
 #define PRODUCTION_ROBOT 1
-#define TWO_ENCODERS 0
+#define TWO_ENCODERS 1
 
-#define COMPRESSOR 0
+#define COMPRESSOR 1
 #define DRIVETRAIN 1
-#define INTAKE 0
-#define TUSKS 0
-#define KICKER 0
-#define LAUNCHER 0
+#define INTAKE 1
+#define TUSKS 1
+#define SHOOTER 1
 
 #define BHS_GYRO 0
 
 class bhs_Constants {
 public:
 #if COMPRESSOR
-	static const int PRESSURE_SWITCH = 5;
+	static const int PRESSURE_SWITCH = 9;
 	static const int COMPRESSOR_RELAY = 1;
 #endif
 
 #if DRIVETRAIN
-	static const double PID_STRAIGHT_P = 0.01; // default 0.0015
-	static const double PID_STRAIGHT_I = 0.0000225; // default 0.0
+	static const double PID_STRAIGHT_P = 0.05; // default 0.0015
+	static const double PID_STRAIGHT_I = 0.0000; // default 0.0
 	static const double PID_STRAIGHT_D = 0.00000; // default -0.00
-	static const double PID_DRIVE_P = 0.01; // default 0.0015
-	static const double PID_DRIVE_I = 0.0000225; // default 0.0
+	static const double PID_DRIVE_P = 0.02; // default 0.0015
+	static const double PID_DRIVE_I = 0.00003; // default 0.0
 	static const double PID_DRIVE_D = 0.00000;
 	static const float JOYSTICK_DEAD_ZONE = 0.1;
 	static const int DIGITAL_INPUT_MODULE = 2;
@@ -36,9 +35,9 @@ public:
 	static const int DT_LEFT_B_PWM = 1;
 	static const int DT_RIGHT_B_PWM = 3;
 #if PRODUCTION_ROBOT
-	static const int WHEEL_DIAMETER = 5;
+	static const float WHEEL_DIAMETER = 4.875;
 	static const int ENCODER_TICKS_PER_ROTATION = 256;
-	static const int RIGHT_ENCODER_CHANNEL1 = 2;
+	static const int RIGHT_ENCODER_CHANNEL1 = 3;
 	static const int RIGHT_ENCODER_CHANNEL2 = 4;
 	static const int DT_LEFT_F_PWM = 2;
 	static const int DT_RIGHT_F_PWM = 4;
@@ -55,21 +54,19 @@ public:
 
 
 #if TUSKS
-	static const int LEFT_TUSK_FORWARD_SOLENOID = 1;
+	/*static const int LEFT_TUSK_FORWARD_SOLENOID = 1;
 	static const int LEFT_TUSK_REVERSE_SOLENOID = 2;
 	static const int RIGHT_TUSK_FORWARD_SOLENOID = 3;
-	static const int RIGHT_TUSK_REVERSE_SOLENOID = 4;
+	static const int RIGHT_TUSK_REVERSE_SOLENOID = 4;*/
+	static const int TUSK = 1;
 #endif	// TUSKS
 
-
-#if KICKER
-	static const int KICKER_SOLENOID = 3;
-#endif
-
-
-#if LAUNCHER
-
-#endif	// LAUNCHER
+#if SHOOTER
+		static const int SHOOTER_WENCH_LIMIT_CHANNEL = 10;
+        static const int SHOOTER_WENCH_RELAY = 6;
+        static const int SHOOTER_LOW_GOAL_SOLENOID = 5;
+        static const int SHOOTER_HIGH_GOAL_SOLENOID = 6;
+#endif // SHOOTER
 };
 
 #endif // BHS_CONSTANTS_H_

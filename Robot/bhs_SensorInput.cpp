@@ -3,11 +3,14 @@
 // Constant instantiations go here
 
 bhs_SensorInput::bhs_SensorInput(bhs_GlobalData* a_gd) 
-	: m_leftEncoder(bhs_Constants::DIGITAL_INPUT_MODULE, bhs_Constants::LEFT_ENCODER_CHANNEL1, bhs_Constants::LEFT_ENCODER_CHANNEL2)
+	: m_leftEncoder(bhs_Constants::DIGITAL_INPUT_MODULE, 1, 2)//bhs_Constants::LEFT_ENCODER_CHANNEL1, bhs_Constants::LEFT_ENCODER_CHANNEL2)
 #if TWO_ENCODERS
-	, m_rightEncoder(bhs_Contants::DIGITAL_INPUT_MODULE, bhs_Constants::RIGHT_ENCODER_CHANNEL1, bhs_Constants::RIGHT_ENCODER_CHANNEL2)
+	, m_rightEncoder(bhs_Constants::DIGITAL_INPUT_MODULE, 3, 4)// bhs_Constants::RIGHT_ENCODER_CHANNEL1, bhs_Constants::RIGHT_ENCODER_CHANNEL2)
 #endif	
 	, m_gyro(bhs_Constants::ANALOG_INPUT_MODULE, bhs_Constants::GYRO_CHANNEL)
+#if SHOOTER
+	, m_wenchLimitSwitch(bhs_Constants::SHOOTER_WENCH_LIMIT_CHANNEL)
+#endif
 {
 	m_gd = a_gd;
 
@@ -27,6 +30,7 @@ void bhs_SensorInput::init() {
 #if TWO_ENCODERS
 	m_rightEncoder.Reset();
 #endif
+	m_gyro.Reset();
 }
 
 void bhs_SensorInput::run() {
@@ -36,5 +40,7 @@ void bhs_SensorInput::run() {
 	m_gd->mdd_rightEncoderCounts = m_rightEncoder.Get();
 #endif
 	m_gd->mdd_gyroAngle = m_gyro.GetAngle();
-	printf("Gyro angle: %f\n", m_gd->mdd_gyroAngle);
+	//printf("left encoder: %d\t\tright encoder: %d\n", m_gd->mdd_leftEncoderCounts, m_gd->mdd_rightEncoderCounts);
+	//printf("gyro angle: %f\n", m_gd->mdd_gyroAngle);
+	m_gd->mds_wenchLimit = m_wenchLimitSwitch.Get();
 }

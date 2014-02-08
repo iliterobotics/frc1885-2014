@@ -33,7 +33,6 @@ void bhs_DriveTrain::tankDrive() {
 	    m_dd->mdd_driveRightPower = (-1.0 * m_dd->mdd_driveLeftPower);
 	    m_dd->mdd_driveLeftPower = temp;
 	}
-
 }
 
 void bhs_DriveTrain::arcadeDrive() {
