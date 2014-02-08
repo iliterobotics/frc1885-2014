@@ -54,10 +54,11 @@ public:
 
 
 #if TUSKS
-	static const int LEFT_TUSK_FORWARD_SOLENOID = 1;
+	/*static const int LEFT_TUSK_FORWARD_SOLENOID = 1;
 	static const int LEFT_TUSK_REVERSE_SOLENOID = 2;
 	static const int RIGHT_TUSK_FORWARD_SOLENOID = 3;
-	static const int RIGHT_TUSK_REVERSE_SOLENOID = 4;
+	static const int RIGHT_TUSK_REVERSE_SOLENOID = 4;*/
+	static const int TUSK = 1;
 #endif	// TUSKS
 
 #if SHOOTER

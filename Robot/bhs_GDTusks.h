@@ -10,10 +10,9 @@ public:
 	bhs_GDTusks();
 
 	bool mdt_tusksUp;
-	bool mdt_tusksDown;
-
-	DoubleSolenoid::Value mdt_leftTuskOutput;
-	DoubleSolenoid::Value mdt_rightTuskOutput;
+    bool mdt_tusksDown;
+	
+	bool mdt_tusksOutput;
 
 };
 

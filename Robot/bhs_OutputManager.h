@@ -36,9 +36,10 @@ class bhs_OutputManager {
 #endif        // DRIVETRAIN
 #if INTAKE
                 Talon m_intakeRoller;
-#endif        // INTAKE
+#endif        // INTAKEs
 #if TUSKS
-                DoubleSolenoid m_leftTusk, m_rightTusk;
+                /*DoubleSolenoid m_leftTusk, m_rightTusk;*/
+                Solenoid m_tusks;
 #endif        // TUSKS
 #if SHOOTER
                 Talon m_wench;

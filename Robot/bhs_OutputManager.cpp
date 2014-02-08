@@ -14,8 +14,9 @@ bhs_OutputManager::bhs_OutputManager(bhs_GlobalData* a_gd)
 , m_intakeRoller(bhs_Constants::INTAKE_PWM)
 #endif        // INTAKE
 #if TUSKS
-, m_leftTusk(bhs_Constants::LEFT_TUSK_FORWARD_SOLENOID, bhs_Constants::LEFT_TUSK_REVERSE_SOLENOID)
-, m_rightTusk(bhs_Constants::RIGHT_TUSK_FORWARD_SOLENOID, bhs_Constants::RIGHT_TUSK_REVERSE_SOLENOID)
+/*, m_leftTusk(bhs_Constants::LEFT_TUSK_FORWARD_SOLENOID, bhs_Constants::LEFT_TUSK_REVERSE_SOLENOID)
+, m_rightTusk(bhs_Constants::RIGHT_TUSK_FORWARD_SOLENOID, bhs_Constants::RIGHT_TUSK_REVERSE_SOLENOID)*/
+, m_tusks(bhs_Constants::TUSK)
 #endif        // TUSKS
 #if SHOOTER
 	, m_wench(bhs_Constants::SHOOTER_WENCH_RELAY)
@@ -44,8 +45,9 @@ void bhs_OutputManager::init() {
 	m_intakeRoller.SetSpeed(0);
 #endif        // INTAKE
 #if TUSKS
-	m_leftTusk.Set(DoubleSolenoid::kOff);
-	m_rightTusk.Set(DoubleSolenoid::kOff);
+	/*m_leftTusk.Set(DoubleSolenoid::kOff);
+	m_rightTusk.Set(DoubleSolenoid::kOff);*/
+	m_tusks.Set(false);
 #endif        // TUSKS
 #if SHOOTER
 	m_wench.Set(0);
@@ -91,8 +93,8 @@ void bhs_OutputManager::runPneumatics() {
 #endif
 #if TUSKS
 	//printf("leftTusk: %f\trightTusk: %f\t", m_gd->mdt_leftTuskOutput, m_gd->mdt_rightTuskOutput);
-	m_leftTusk.Set(m_gd->mdt_leftTuskOutput);
-	m_rightTusk.Set(m_gd->mdt_rightTuskOutput);
+	m_tusks.Set(m_gd->mdt_tusksOutput);
+	
 #endif
 #if SHOOTER
 	m_lowGoal.Set(m_gd->mds_lowGoalOutput);
