@@ -9,11 +9,13 @@ public:
 
 	bool mdi_intakeForward;
 	bool mdi_intakeReversed;
-
-	float mdi_intakePower;
-
+	float mdi_intakeOutput;
 	static const float mdi_maxForwardPower = 0.8;
 	static const float mdi_maxReversedPower = -0.8;
+
+	bool mdt_tusksUp;
+	bool mdt_tusksDown;
+	bool mdt_tusksOutput;
 
 
 };

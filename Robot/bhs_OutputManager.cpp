@@ -74,7 +74,7 @@ void bhs_OutputManager::runMotors() {
 #endif        // DRIVETRAIN
 #if INTAKE
 	//printf("intake: %f\t", m_gd->mdi_intakePower);
-	m_intakeRoller.SetSpeed(m_gd->mdi_intakePower);
+	m_intakeRoller.SetSpeed(m_gd->mdi_intakeOutput);
 #endif        // INTAKE
 #if SHOOTER
 	m_wench.Set(m_gd->mds_wenchOutput);

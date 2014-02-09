@@ -43,7 +43,7 @@ void bhs_SensorInput::run() {
 	m_gd->mdd_rightEncoderCounts = m_rightEncoder->Get();
 #endif
 	m_gd->mdd_gyroAngle = m_gyro->GetAngle();
-	//printf("left encoder: %d\t\tright encoder: %d\n", m_gd->mdd_leftEncoderCounts, m_gd->mdd_rightEncoderCounts);
+	printf("left encoder: %d\t\tright encoder: %d\n", m_gd->mdd_leftEncoderCounts, m_gd->mdd_rightEncoderCounts);
 	//printf("gyro angle: %f\n", m_gd->mdd_gyroAngle);
 	m_gd->mds_wenchLimit = m_wenchLimitSwitch->Get();
 }
