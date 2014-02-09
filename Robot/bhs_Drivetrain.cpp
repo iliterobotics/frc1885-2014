@@ -25,8 +25,14 @@ void bhs_DriveTrain::run() {
 }
 
 void bhs_DriveTrain::tankDrive() {
-	m_dd->mdd_driveLeftPower = deadzone(m_dd->mdd_joystick1Y);
-	m_dd->mdd_driveRightPower = -deadzone(m_dd->mdd_joystick2Y);
+	m_dd->mdd_driveLeftPower = -deadzone(m_dd->mdd_joystick1Y);
+	m_dd->mdd_driveRightPower = deadzone(m_dd->mdd_joystick2Y);
+
+	if (m_dd->mdd_reversed) {
+	    float temp = -1.0 * m_dd->mdd_driveRightPower;
+	    m_dd->mdd_driveRightPower = (-1.0 * m_dd->mdd_driveLeftPower);
+	    m_dd->mdd_driveLeftPower = temp;
+	}
 }
 
 void bhs_DriveTrain::arcadeDrive() {
@@ -42,6 +48,12 @@ void bhs_DriveTrain::arcadeDrive() {
 		driveStraightReset();
 		float forwardBackSpeed = deadzone(m_dd->mdd_joystick2Y);
 		float leftRightSpeed = deadzone(m_dd->mdd_joystick2X);
+
+		if (m_dd->mdd_reversed) {
+		    forwardBackSpeed = -1.0 * forwardBackSpeed;
+		    leftRightSpeed = -1.0 * leftRightSpeed;
+		}
+
 		m_dd->mdd_driveLeftPower = limit(forwardBackSpeed + leftRightSpeed);
 		m_dd->mdd_driveRightPower = limit(forwardBackSpeed - leftRightSpeed);
 	}

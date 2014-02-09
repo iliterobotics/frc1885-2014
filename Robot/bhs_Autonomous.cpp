@@ -1,14 +1,8 @@
 #include "bhs_Autonomous.h"
 
-bhs_Autonomous::bhs_Autonomous(bhs_GlobalData* a_gd) 
-: m_straightPID()
-{	
+bhs_Autonomous::bhs_Autonomous(bhs_GlobalData* a_gd) {
 	m_gd = a_gd;
-
-	m_distPID.setConstants(bhs_Constants::PID_DRIVE_P, bhs_Constants::PID_DRIVE_I, bhs_Constants::PID_DRIVE_D);
-	m_straightPID.setConstants(bhs_Constants::PID_STRAIGHT_P, bhs_Constants::PID_STRAIGHT_I, bhs_Constants::PID_STRAIGHT_D);
-
-	m_state = k_forward;
+	m_state = k_intakeForward;
 }
 
 bhs_Autonomous::~bhs_Autonomous() {
@@ -16,126 +10,67 @@ bhs_Autonomous::~bhs_Autonomous() {
 }
 
 void bhs_Autonomous::init() {
-	m_state = k_forward;
+	m_state = k_intakeForward;
 	reset();
 }
 
-void bhs_Autonomous::run() {
-#if REAL_AUTO
-	hotGoalForward();
-#else
-	moveStraight(k_dist);
-#endif
-}
-
 void bhs_Autonomous::reset() {
-	m_gd->mdd_joystick1X = 0;
-	m_gd->mdd_joystick1Y = 0;
-	m_gd->mdd_joystick2X = 0;
-	m_gd->mdd_joystick2Y = 0;	
-
-	m_distPID.reset();
-	m_straightPID.reset();
+	m_gd->mdi_intakeForward = false;
+	m_gd->mdi_intakeReversed = false;
+	m_gd->mdt_tusksUp = false;
+	m_gd->mdt_tusksDown = false;
 }
 
-int bhs_Autonomous::inchesToEncoder(float a_inches) {
-#if PRODUCTION_ROBOT
-	float circum = atan(1)*4 * bhs_Constants::WHEEL_DIAMETER;
-	float rotations = a_inches / circum;
-	float ticks = rotations * bhs_Constants::ENCODER_TICKS_PER_ROTATION;
-
-	return (int)ticks;
-#else
-	return (int)(a_inches * k_ticksPerInch);
-#endif
-}
-
-float bhs_Autonomous::encoderToInches(int a_encoders) {
-	return a_encoders / inchesToEncoder(1);
-}
-
-void bhs_Autonomous::moveStraight(int p_dist) {
-	int target = -p_dist;
-
+void bhs_Autonomous::testIntake() {
 	switch(m_state) {
-	case k_forward:
-		float distCurrent = encoderToInches(m_gd->mdd_leftEncoderCounts);
-		float distOutput = m_distPID.getPID(distCurrent, target);
-		float straightCurrent = m_gd->mdd_gyroAngle;
-		float straightOutput = m_straightPID.getPID(straightCurrent, 0);
-
-		if(fabs(distCurrent)<1) {
-			distOutput = -0.25;
+	case k_intakeForward:
+		time.Start();
+		m_gd->mdi_intakeForward = true;
+		if(time.Get() > 2) {
+			time.Stop();
+			m_gd->mdi_intakeForward = false;
+			m_state = k_intakeReversed;
+			time.Reset();
 		}
-
-		m_gd->mdd_joystick1X = 0;
-		m_gd->mdd_joystick1Y = -straightOutput + distOutput;
-		m_gd->mdd_joystick2X = 0;
-		m_gd->mdd_joystick2Y = straightOutput + distOutput;
-
-
-
-		if(abs(distCurrent-target) <= k_pidThreshold) {
-			printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
+		break;
+	case k_intakeReversed:
+		time.Start();
+		m_gd->mdi_intakeReversed = true;
+		if(time.Get() > 2) {
+			time.Stop();
+			m_gd->mdi_intakeReversed = false;
+			m_state = k_tusksUp;
+			time.Reset();
+		}
+		break;
+	case k_tusksUp:
+		time.Start();
+		m_gd->mdt_tusksUp = true;
+		if(time.Get() > 2) {
+			time.Stop();
+			m_gd->mdt_tusksUp = false;
+			m_state = k_tusksDown;
+			time.Reset();
+		}
+		break;
+	case k_tusksDown:
+		time.Start();
+		m_gd->mdt_tusksDown = true;
+		if(time.Get() > 2) {
+			time.Stop();
+			m_gd->mdt_tusksDown= false;
 			m_state = k_finished;
+			time.Reset();
 		}
 		break;
-
 	case k_finished:
 		reset();
-		if(fabs(m_gd->mdd_gyroAngle-180)<=0.5) {
-			float straightCurrent = m_gd->mdd_gyroAngle;
-			float straightOutput = m_straightPID.getPID(straightCurrent, 180);
-			
-			m_gd->mdd_joystick1X = 0;
-			m_gd->mdd_joystick1Y = -straightOutput;
-			m_gd->mdd_joystick2X = 0;
-			m_gd->mdd_joystick2Y = straightOutput;
-			
-			printf("sC: %f\t\tsO: %f\n", straightCurrent, straightOutput);
-
-		}
-		break;
 	default:
 		reset();
 	}
 }
 
-void bhs_Autonomous::hotGoalForward() {
-	int target = k_forwardDist;
-
-	switch(m_state) {
-	case k_forward:
-		float current = encoderToInches(m_gd->mdd_leftEncoderCounts);
-		float pidOutput = m_straightPID.getPID(current, target);
-		printf("%f\t\t%d\t\t%f\n", current, target, pidOutput);
-		m_gd->mdd_joystick1X = 0;
-		m_gd->mdd_joystick1Y = pidOutput;
-		m_gd->mdd_joystick2X = 0;
-		m_gd->mdd_joystick2Y = pidOutput;
-		if(fabs(m_gd->mdd_leftEncoderCounts-target) == k_pidThreshold) {
-			m_state = k_waitHot;
-		}
-		break;
-
-	case k_waitHot:
-		reset();
-		if(m_gd->mda_goalHot) {
-			m_state = k_shoot;
-		}
-		break;
-
-	case k_shoot:
-		m_gd->mds_highGoalRelease = true;
-		m_state = k_finished;
-		break;
-
-	case k_finished:
-		reset();
-		m_straightPID.reset();
-		break;
-
-	default:
-		reset();
-	}
+void bhs_Autonomous::run() {
+	testIntake();
 }
+

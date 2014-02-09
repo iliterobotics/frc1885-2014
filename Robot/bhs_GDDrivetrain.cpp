@@ -14,5 +14,6 @@ bhs_GDDrivetrain::bhs_GDDrivetrain() {
 
 	mdd_driveLeftPower = 0.0;
 	mdd_driveRightPower = 0.0;
+	mdd_reversed = false;
 }
 
