@@ -23,13 +23,13 @@ class bhs_SensorInput {
 		bhs_GlobalData* m_gd;
 
 		// Sensor declarations go here
-		Encoder m_leftEncoder;
+		Encoder* m_leftEncoder;
 #if TWO_ENCODERS
-		Encoder m_rightEncoder;
+		Encoder* m_rightEncoder;
 #endif
-		Gyro m_gyro;
+		Gyro* m_gyro;
 #if SHOOTER
-		DigitalInput m_wenchLimitSwitch;
+		DigitalInput* m_wenchLimitSwitch;
 #endif
 };
 

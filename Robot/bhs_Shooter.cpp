@@ -18,5 +18,4 @@ void bhs_Shooter::run() {
 	m_ds->mds_lowGoalOutput = m_ds->mds_lowGoalForward;
 	
 	m_ds->mds_highGoalOutput = m_ds->mds_highGoalRelease;
-	printf("winchlimit: %d\t\twinchbutton: %d\t\twinchoutput:%f\n", m_ds->mds_wenchLimit, m_ds->mds_wench, m_ds->mds_wenchOutput);
 }
