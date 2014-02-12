@@ -20,11 +20,11 @@ public:
 #endif
 
 #if DRIVETRAIN
-	static const double PID_STRAIGHT_P = 0.05; // default 0.0015
-	static const double PID_STRAIGHT_I = 0.0000; // default 0.0
+	static const double PID_STRAIGHT_P = 0.1; // default 0.0015
+	static const double PID_STRAIGHT_I = 0.0001; // default 0.0
 	static const double PID_STRAIGHT_D = 0.00000; // default -0.00
-	static const double PID_DRIVE_P = 0.002; // default 0.0015
-	static const double PID_DRIVE_I = 0.00000; // default 0.0
+	static const double PID_DRIVE_P = 0.02; // default 0.0015
+	static const double PID_DRIVE_I = 0.00003; // default 0.0
 	static const double PID_DRIVE_D = 0.00000;
 	static const float JOYSTICK_DEAD_ZONE = 0.1;
 	static const int DIGITAL_INPUT_MODULE = 2;
@@ -35,7 +35,7 @@ public:
 	static const int DT_LEFT_B_PWM = 1;
 	static const int DT_RIGHT_B_PWM = 3;
 #if PRODUCTION_ROBOT
-	static const float WHEEL_DIAMETER = 4.875;
+	static const float WHEEL_DIAMETER = 4.5;
 	static const int ENCODER_TICKS_PER_ROTATION = 256;
 	static const int RIGHT_ENCODER_CHANNEL1 = 3;
 	static const int RIGHT_ENCODER_CHANNEL2 = 4;

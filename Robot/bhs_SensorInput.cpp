@@ -6,8 +6,8 @@ bhs_SensorInput::bhs_SensorInput(bhs_GlobalData* a_gd)
 {
 	m_gd = a_gd;
 
-	m_leftEncoder = new Encoder(bhs_Constants::LEFT_ENCODER_CHANNEL1, bhs_Constants::LEFT_ENCODER_CHANNEL2);
-	m_rightEncoder = new Encoder(bhs_Constants::RIGHT_ENCODER_CHANNEL1, bhs_Constants::RIGHT_ENCODER_CHANNEL2, true);
+	m_leftEncoder = new Encoder(bhs_Constants::LEFT_ENCODER_CHANNEL1, bhs_Constants::LEFT_ENCODER_CHANNEL2, true);
+	m_rightEncoder = new Encoder(bhs_Constants::RIGHT_ENCODER_CHANNEL1, bhs_Constants::RIGHT_ENCODER_CHANNEL2);
 	
 	m_gyro = new Gyro(bhs_Constants::GYRO_CHANNEL);
 	m_wenchLimitSwitch = new DigitalInput(bhs_Constants::SHOOTER_WENCH_LIMIT_CHANNEL);
@@ -43,7 +43,7 @@ void bhs_SensorInput::run() {
 	m_gd->mdd_rightEncoderCounts = m_rightEncoder->Get();
 #endif
 	m_gd->mdd_gyroAngle = m_gyro->GetAngle();
-	printf("left encoder: %d\t\tright encoder: %d\n", m_gd->mdd_leftEncoderCounts, m_gd->mdd_rightEncoderCounts);
+	//printf("left encoder: %d\t\tright encoder: %d\n", m_gd->mdd_leftEncoderCounts, m_gd->mdd_rightEncoderCounts);
 	//printf("gyro angle: %f\n", m_gd->mdd_gyroAngle);
 	m_gd->mds_wenchLimit = m_wenchLimitSwitch->Get();
 }

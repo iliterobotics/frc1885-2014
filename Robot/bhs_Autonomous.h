@@ -38,7 +38,7 @@ private:
 #endif
 
 	static const float k_maxVel = 0.8;
-	static const int k_dist = 180;			// 180 inches, 15 feet
+	static const int k_dist = 84;			// 180 inches, 15 feet
 	static const int k_forwardDist = 180;	// 
 	static const int k_pidThreshold = 1;
 

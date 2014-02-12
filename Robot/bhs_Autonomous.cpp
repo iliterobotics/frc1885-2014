@@ -61,21 +61,25 @@ void bhs_Autonomous::moveStraight(int p_dist) {
 	case k_forward:
 		float distCurrent = encoderToInches(m_gd->mdd_leftEncoderCounts);
 		float distOutput = m_distPID.getPID(distCurrent, target);
+#if 1
 		float straightCurrent = m_gd->mdd_gyroAngle;
+#else
+		int straightCurrent = m_gd->mdd_leftEncoderCounts - m_gd->mdd_rightEncoderCounts;
+#endif
 		float straightOutput = m_straightPID.getPID(straightCurrent, 0);
 
 		if(fabs(distCurrent)<1) {
 			distOutput = -0.25;
 		}
-
+		printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
+					
+		
 		m_gd->mdd_joystick1X = 0;
-		m_gd->mdd_joystick1Y = -straightOutput + distOutput;
+		m_gd->mdd_joystick1Y = straightOutput + distOutput;
 		m_gd->mdd_joystick2X = 0;
-		m_gd->mdd_joystick2Y = straightOutput + distOutput;
+		m_gd->mdd_joystick2Y = -straightOutput + distOutput;
 
-
-
-		if(abs(distCurrent-target) <= k_pidThreshold) {
+		if(fabs(distCurrent-target) <= k_pidThreshold) {
 			printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
 			m_state = k_finished;
 		}
@@ -83,18 +87,19 @@ void bhs_Autonomous::moveStraight(int p_dist) {
 
 	case k_finished:
 		reset();
-		if(fabs(m_gd->mdd_gyroAngle-180)<=0.5) {
-			float straightCurrent = m_gd->mdd_gyroAngle;
-			float straightOutput = m_straightPID.getPID(straightCurrent, 180);
-
-			m_gd->mdd_joystick1X = 0;
-			m_gd->mdd_joystick1Y = -straightOutput;
-			m_gd->mdd_joystick2X = 0;
-			m_gd->mdd_joystick2Y = straightOutput;
-
-			printf("sC: %f\t\tsO: %f\n", straightCurrent, straightOutput);
-
-		}
+		
+//		if(fabs(m_gd->mdd_gyroAngle-180)<=0.5) {
+//			float straightCurrent = m_gd->mdd_gyroAngle;
+//			float straightOutput = m_straightPID.getPID(straightCurrent, 180);
+//			
+//			m_gd->mdd_joystick1X = 0;
+//			m_gd->mdd_joystick1Y = -straightOutput;
+//			m_gd->mdd_joystick2X = 0;
+//			m_gd->mdd_joystick2Y = straightOutput;
+//			
+//			printf("sC: %f\t\tsO: %f\n", straightCurrent, straightOutput);
+//
+//		}
 		break;
 	default:
 		reset();
