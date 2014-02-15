@@ -14,9 +14,12 @@
 
 class bhs_Constants {
 public:
+	static const int ARDUINO_CHANNEL = 3;
+	
 #if COMPRESSOR
 	static const int PRESSURE_SWITCH = 9;
 	static const int COMPRESSOR_RELAY = 1;
+	static const int PRESSURE_LEVEL_CHANNEL = 2;
 #endif
 
 #if DRIVETRAIN

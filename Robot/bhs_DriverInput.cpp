@@ -23,7 +23,7 @@ void bhs_DriverInput::run() {
 	m_gd->mdd_joystick2Y = -m_joystick2.GetAxis(Joystick::kYAxis);
 
 	m_gd->mdd_buttonUseArcadeDrive = m_joystick1.GetRawButton(BUTTON_USE_ARCADE_DRIVE);
-	m_gd->mdd_reversed = m_joystick1.GetRawButton(BUTTON_REVERSE_DRIVE);
+	m_gd->mdd_reversed = m_joystick1.GetTrigger(GenericHID::kLeftHand);
 
 	// Intake (roller and tusks)
 	m_gd->mdi_intakeForward = m_controller.GetRawButton(INTAKE_FORWARD);
