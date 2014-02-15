@@ -15,14 +15,6 @@ void bhs_Shooter::run() {
 		m_ds->mds_wenchOutput = 0.0;
 	}
 	
-	if(m_ds->mds_lowGoalIn) {
-		m_ds->mds_lowGoalOutput = DoubleSolenoid::kForward;
-	} else if(m_ds->mds_lowGoalOut){
-		m_ds->mds_lowGoalOutput = DoubleSolenoid::kReverse;
-	} else {
-		m_ds->mds_lowGoalOutput = DoubleSolenoid::kOff;
-	}
-	
 	if(m_ds->mds_highGoalIn) {
 		m_ds->mds_highGoalOutput = DoubleSolenoid::kForward;
 	} else if(m_ds->mds_highGoalOut){

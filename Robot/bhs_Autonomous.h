@@ -9,7 +9,7 @@
 #include "PID.h"
 #include "bhs_SensorInput.h"
 
-#define REAL_AUTO 0
+#define REAL_AUTO 1
 
 class bhs_Autonomous {
 public:
@@ -40,7 +40,7 @@ private:
 	static const float k_maxVel = 0.8;
 	static const int k_dist = 84;			// 180 inches, 15 feet
 	static const int k_forwardDist = 180;	// 
-	static const int k_pidThreshold = 1;
+	static const int k_pidThreshold = 2;
 
 	void reset();
 	int inchesToEncoder(float a_inches);

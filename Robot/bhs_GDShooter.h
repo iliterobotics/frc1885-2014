@@ -14,12 +14,10 @@ public:
 	
 	bool mds_highGoalIn;
 	bool mds_highGoalOut;
-	bool mds_lowGoalIn;
-	bool mds_lowGoalOut;
+	bool mds_lowGoal;
 	bool mds_wench;
 	
 	float mds_wenchOutput;
-	DoubleSolenoid::Value mds_lowGoalOutput;
 	DoubleSolenoid::Value mds_highGoalOutput;
 };
 

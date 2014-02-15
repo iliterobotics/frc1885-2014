@@ -68,8 +68,7 @@ public:
 #if SHOOTER
 		static const int SHOOTER_WENCH_LIMIT_CHANNEL = 10;
         static const int SHOOTER_WENCH_RELAY = 6;
-        static const int SHOOTER_LOW_GOAL_IN_SOLENOID = 5;
-        static const int SHOOTER_LOW_GOAL_OUT_SOLENOID = 6;
+        static const int SHOOTER_LOW_GOAL_SOLENOID = 6;
         static const int SHOOTER_HIGH_GOAL_IN_SOLENOID = 3;
         static const int SHOOTER_HIGH_GOAL_OUT_SOLENOID = 4;
 #endif // SHOOTER

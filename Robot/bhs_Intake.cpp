@@ -18,5 +18,7 @@ void bhs_Intake::run() {
 	} else if (m_di->mdt_tusksDown) {
 		m_di->mdi_intakeOutput = 0;
 		m_di->mdt_tusksOutput = DoubleSolenoid::kForward;
+	} else {
+		m_di->mdt_tusksOutput = DoubleSolenoid::kOff;
 	}
 }

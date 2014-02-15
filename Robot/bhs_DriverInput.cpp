@@ -36,8 +36,7 @@ void bhs_DriverInput::run() {
 	m_gd->mds_highGoalIn = m_controller.GetRawButton(HIGH_GOAL_IN);
 	m_gd->mds_highGoalOut = m_controller.GetRawButton(HIGH_GOAL_OUT);
 
-	m_gd->mds_lowGoalIn = m_controller.GetRawButton(LOW_GOAL_IN);
-	m_gd->mds_lowGoalOut = m_controller.GetRawButton(LOW_GOAL_OUT);
+	m_gd->mds_lowGoal = m_controller.GetRawButton(LOW_GOAL);
 	m_gd->mds_wench = m_controller.GetRawButton(WENCH);
 
 }
