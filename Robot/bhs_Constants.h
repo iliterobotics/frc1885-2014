@@ -9,6 +9,7 @@
 #define INTAKE 1
 #define TUSKS 1
 #define SHOOTER 1
+#define CATCHER 1
 
 #define BHS_GYRO 0
 
@@ -67,6 +68,10 @@ public:
         static const int SHOOTER_LOW_GOAL_SOLENOID = 5;
         static const int SHOOTER_HIGH_GOAL_SOLENOID = 6;
 #endif // SHOOTER
+        
+#if CATCHER
+	static const int CATCHER_CATCH = 0;
+#endif // CATCHER
 };
 
 #endif // BHS_CONSTANTS_H_

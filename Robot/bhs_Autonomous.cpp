@@ -75,8 +75,8 @@ void bhs_Autonomous::moveStraight(int p_dist) {
 
 
 
-		if(abs(distCurrent-target) <= k_pidThreshold) {
-			printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
+		if(abs(long (distCurrent-target)) <= k_pidThreshold) {
+			//printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
 			m_state = k_finished;
 		}
 		break;
@@ -86,12 +86,12 @@ void bhs_Autonomous::moveStraight(int p_dist) {
 		if(fabs(m_gd->mdd_gyroAngle-180)<=0.5) {
 			float straightCurrent = m_gd->mdd_gyroAngle;
 			float straightOutput = m_straightPID.getPID(straightCurrent, 180);
-			
+
 			m_gd->mdd_joystick1X = 0;
 			m_gd->mdd_joystick1Y = -straightOutput;
 			m_gd->mdd_joystick2X = 0;
 			m_gd->mdd_joystick2Y = straightOutput;
-			
+
 			printf("sC: %f\t\tsO: %f\n", straightCurrent, straightOutput);
 
 		}

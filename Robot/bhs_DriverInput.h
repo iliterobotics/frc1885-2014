@@ -17,7 +17,6 @@ class bhs_DriverInput {
 		
 		// Drivetrain
 		static const UINT32 BUTTON_USE_ARCADE_DRIVE = 3;
-		static const UINT32 BUTTON_REVERSE_DRIVE = 4;
 
 		// Intake (roller and tusks)
 		static const UINT32 INTAKE_FORWARD = 5;
@@ -25,10 +24,9 @@ class bhs_DriverInput {
 		static const UINT32 TUSKS_UP = 6;
 		static const UINT32 TUSKS_DOWN = 8;
 		
-		//Shooter
-		static const UINT32 HIGH_GOAL_RELEASE = 9;
-		static const UINT32 LOW_GOAL = 1;
-		static const UINT32 WENCH = 2;
+		// Catcher
+		static const UINT32 CATCHER_CATCH = 0000000; 
+		
 		
 		bhs_DriverInput(bhs_GlobalData*);
 		virtual ~bhs_DriverInput();

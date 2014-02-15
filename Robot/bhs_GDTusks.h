@@ -1,7 +1,6 @@
 #ifndef BHS_GD_TUSKS_H_
 #define BHS_GD_TUSKS_H_
 
-#include "DoubleSolenoid.h"
 
 #include "bhs_Constants.h"
 
