@@ -14,9 +14,9 @@ void bhs_Intake::run() {
 	}
 
 	if(m_di->mdt_tusksUp) {
-		m_di->mdt_tusksOutput = false;
+		m_di->mdt_tusksOutput = DoubleSolenoid::kReverse;
 	} else if (m_di->mdt_tusksDown) {
 		m_di->mdi_intakeOutput = 0;
-		m_di->mdt_tusksOutput = true;
+		m_di->mdt_tusksOutput = DoubleSolenoid::kForward;
 	}
 }

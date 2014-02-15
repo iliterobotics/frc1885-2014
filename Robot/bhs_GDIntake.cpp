@@ -7,5 +7,5 @@ bhs_GDIntake::bhs_GDIntake() {
 
 	mdt_tusksUp = false;
 	mdt_tusksDown = false;
-	mdt_tusksOutput = true;
+	mdt_tusksOutput = DoubleSolenoid::kOff;
 }

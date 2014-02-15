@@ -131,7 +131,7 @@ void bhs_Autonomous::hotGoalForward() {
 		break;
 
 	case k_shoot:
-		m_gd->mds_highGoalRelease = true;
+		m_gd->mds_highGoalIn = true;
 		m_state = k_finished;
 		break;
 

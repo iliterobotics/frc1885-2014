@@ -14,12 +14,12 @@ bhs_OutputManager::bhs_OutputManager(bhs_GlobalData* a_gd)
 , m_intakeRoller(bhs_Constants::INTAKE_PWM)
 #endif        // INTAKE
 #if TUSKS
-, m_tusks(bhs_Constants::TUSK)
+, m_tusks(bhs_Constants::TUSK_DOWN_SOLENOID, bhs_Constants::TUSK_UP_SOLENOID)
 #endif        // TUSKS
 #if SHOOTER
 , m_wench(bhs_Constants::SHOOTER_WENCH_RELAY)
-, m_lowGoal(bhs_Constants::SHOOTER_LOW_GOAL_SOLENOID)
-, m_highGoalRelease(bhs_Constants::SHOOTER_HIGH_GOAL_SOLENOID)
+, m_lowGoal(bhs_Constants::SHOOTER_LOW_GOAL_IN_SOLENOID, bhs_Constants::SHOOTER_LOW_GOAL_OUT_SOLENOID)
+, m_highGoalRelease(bhs_Constants::SHOOTER_HIGH_GOAL_IN_SOLENOID, bhs_Constants::SHOOTER_HIGH_GOAL_OUT_SOLENOID)
 #endif 		// SHOOTER
 {
 	m_gd = a_gd;
@@ -45,12 +45,12 @@ void bhs_OutputManager::init() {
 #if TUSKS
 	/*m_leftTusk.Set(DoubleSolenoid::kOff);
 	m_rightTusk.Set(DoubleSolenoid::kOff);*/
-	m_tusks.Set(false);
+	m_tusks.Set(DoubleSolenoid::kOff);
 #endif        // TUSKS
 #if SHOOTER
 	m_wench.Set(0);
-	m_lowGoal.Set(false);
-	m_highGoalRelease.Set(false);
+	m_lowGoal.Set(DoubleSolenoid::kOff);
+	m_highGoalRelease.Set(DoubleSolenoid::kOff);
 #endif
 }
 

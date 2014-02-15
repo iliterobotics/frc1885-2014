@@ -61,14 +61,17 @@ public:
 	static const int LEFT_TUSK_REVERSE_SOLENOID = 2;
 	static const int RIGHT_TUSK_FORWARD_SOLENOID = 3;
 	static const int RIGHT_TUSK_REVERSE_SOLENOID = 4;*/
-	static const int TUSK = 1;
+	static const int TUSK_DOWN_SOLENOID = 1;
+	static const int TUSK_UP_SOLENOID = 2;
 #endif	// TUSKS
 
 #if SHOOTER
 		static const int SHOOTER_WENCH_LIMIT_CHANNEL = 10;
         static const int SHOOTER_WENCH_RELAY = 6;
-        static const int SHOOTER_LOW_GOAL_SOLENOID = 5;
-        static const int SHOOTER_HIGH_GOAL_SOLENOID = 6;
+        static const int SHOOTER_LOW_GOAL_IN_SOLENOID = 5;
+        static const int SHOOTER_LOW_GOAL_OUT_SOLENOID = 6;
+        static const int SHOOTER_HIGH_GOAL_IN_SOLENOID = 3;
+        static const int SHOOTER_HIGH_GOAL_OUT_SOLENOID = 4;
 #endif // SHOOTER
 };
 
