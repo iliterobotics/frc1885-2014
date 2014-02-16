@@ -1,6 +1,6 @@
 #include "bhs_Intake.h"
 
-bhs_Intake::bhs_Intake(bhs_GDIntake* a_di) {
+bhs_Intake::bhs_Intake(bhs_GlobalData* a_di) {
 	m_di = a_di;
 }
 
@@ -20,5 +20,11 @@ void bhs_Intake::run() {
 		m_di->mdt_tusksOutput = DoubleSolenoid::kForward;
 	} else {
 		m_di->mdt_tusksOutput = DoubleSolenoid::kOff;
+	}
+	
+	
+	if(!m_di->mds_wenchLimit) {
+		m_di->mdi_intakeOutput = 0;
+		m_di->mdt_tusksOutput = DoubleSolenoid::kForward;
 	}
 }
