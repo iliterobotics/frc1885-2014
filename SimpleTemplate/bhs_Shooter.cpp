@@ -14,7 +14,6 @@ void bhs_Shooter::run() {
 	if(!m_ds->mds_wenchLimit && m_ds->mds_wench) {
 		m_ds->mds_highGoalOutput = DoubleSolenoid::kForward;
 		m_ds->mds_wenchOutput = 1.0;
-		m_state = k_winch;
 	} else {
 		m_ds->mds_wenchOutput = 0.0;
 	}
@@ -23,8 +22,12 @@ void bhs_Shooter::run() {
 		m_ds->mds_highGoalOutput = DoubleSolenoid::kForward;
 	} else if(m_ds->mds_highGoalOut){
 		m_ds->mds_highGoalOutput = DoubleSolenoid::kReverse;
-		m_state = k_shoot;
 	} else {
+		m_ds->mds_highGoalOutput = DoubleSolenoid::kOff;
+	}
+	
+	// If intake arm is out, cannot shoot.
+	if(m_ds->mdt_tusksUp) {
 		m_ds->mds_highGoalOutput = DoubleSolenoid::kOff;
 	}
 
