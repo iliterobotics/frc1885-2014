@@ -132,7 +132,7 @@ void RobotTelemetry::updateTelemetryData() {
 	unsigned int buttonIndex = 0;
 	unsigned int index = 0;
 	DigitalModule* dio = DigitalModule::GetInstance(1);
-	AnalogModule* aio = AnalogModule::GetInstance(0);
+	AnalogModule* aio = AnalogModule::GetInstance(1);
 	
 	//micro seconds to milliseconds
 	robotDiagnostics->time = (long)((GetFPGATime() - startTime) * 1.0e-3);
