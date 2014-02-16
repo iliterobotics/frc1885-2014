@@ -1,6 +1,6 @@
 #include "bhs_Shooter.h"
 
-bhs_Shooter::bhs_Shooter(bhs_GDShooter* a_ds) {
+bhs_Shooter::bhs_Shooter(bhs_GlobalData* a_ds) {
 	m_ds = a_ds;
 
 	m_state = k_ready;
@@ -30,6 +30,8 @@ void bhs_Shooter::run() {
 
 
 /*
+ * State machine to automatically wind down the winch as soon as high goal is fired.
+ * May not want to implement because if limit switch fails, robot would die.
 	switch(m_state) {
 	case k_ready:
 		if(m_ds->mds_highGoalOut) {
@@ -51,6 +53,6 @@ void bhs_Shooter::run() {
 		}
 		break;
 	}
-	*/
+*/
 
 }
