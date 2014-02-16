@@ -4,6 +4,8 @@
 #include "DriverStationLCD.h"
 #include "Watchdog.h"
 
+#include "DataDiagnostic.h"
+
 #include "bhs_Constants.h"
 #include "bhs_GlobalData.h"
 

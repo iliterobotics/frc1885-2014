@@ -15,6 +15,13 @@ bhs_Robot::bhs_Robot()
 	m_drivetrain = new bhs_DriveTrain(&m_gd);
 	m_intake = new bhs_Intake(&m_gd);
 	m_shooter = new bhs_Shooter(&m_gd);
+	
+	//robot telemetry diagnostics
+	RobotTelemetry::getInstance().updateSendRate(1000);
+	RobotTelemetry::getInstance().enable();
+	
+	//enable debugging
+	RobotDebug::getInstance().setEnabled(true);
 }
 
 bhs_Robot::~bhs_Robot() {
