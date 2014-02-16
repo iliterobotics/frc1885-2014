@@ -12,13 +12,13 @@ public:
 
 	bool mds_wenchLimit;
 	
-	bool mds_highGoalRelease;
-	bool mds_lowGoalForward;
+	bool mds_highGoalIn;
+	bool mds_highGoalOut;
+	bool mds_lowGoal;
 	bool mds_wench;
 	
 	float mds_wenchOutput;
-	bool mds_lowGoalOutput;
-	bool mds_highGoalOutput;
+	DoubleSolenoid::Value mds_highGoalOutput;
 };
 
 #endif        // BHS_GD_SHOOTER_H_

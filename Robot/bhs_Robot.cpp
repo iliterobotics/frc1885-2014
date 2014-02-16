@@ -14,7 +14,6 @@ bhs_Robot::bhs_Robot()
 
 	m_drivetrain = new bhs_DriveTrain(&m_gd);
 	m_intake = new bhs_Intake(&m_gd);
-	m_tusks = new bhs_Tusks(&m_gd);
 	m_shooter = new bhs_Shooter(&m_gd);
 }
 
@@ -25,7 +24,6 @@ bhs_Robot::~bhs_Robot() {
 	
 	delete m_drivetrain;
 	delete m_intake;
-	delete m_tusks;
 	delete m_shooter;
 }
 
@@ -57,7 +55,6 @@ void bhs_Robot::teleop() {
 void bhs_Robot::normalRobotProcessing() {
 	m_drivetrain->run();
 	m_intake->run();
-	m_tusks->run();
 	m_shooter->run();
 	
 	m_outputManager->run();

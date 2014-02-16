@@ -3,5 +3,9 @@
 bhs_GDIntake::bhs_GDIntake() {
 	mdi_intakeForward = false;
 	mdi_intakeReversed = false;
-	mdi_intakePower = 0.0;
+	mdi_intakeOutput = 0.0;
+
+	mdt_tusksUp = false;
+	mdt_tusksDown = false;
+	mdt_tusksOutput = DoubleSolenoid::kOff;
 }

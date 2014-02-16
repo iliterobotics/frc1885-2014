@@ -10,13 +10,18 @@ bhs_Shooter::~bhs_Shooter() {
 
 void bhs_Shooter::run() {
 	if(!m_ds->mds_wenchLimit && m_ds->mds_wench) {
-			m_ds->mds_wenchOutput = 1.0;
+		m_ds->mds_highGoalOutput = DoubleSolenoid::kForward;
+		m_ds->mds_wenchOutput = 1.0;
 	} else {
 		m_ds->mds_wenchOutput = 0.0;
 	}
-	
-	m_ds->mds_lowGoalOutput = m_ds->mds_lowGoalForward;
-	
-	m_ds->mds_highGoalOutput = m_ds->mds_highGoalRelease;
-	printf("winchlimit: %d\t\twinchbutton: %d\t\twinchoutput:%f\n", m_ds->mds_wenchLimit, m_ds->mds_wench, m_ds->mds_wenchOutput);
+
+	if(m_ds->mds_highGoalIn) {
+		m_ds->mds_highGoalOutput = DoubleSolenoid::kForward;
+	} else if(m_ds->mds_highGoalOut){
+		m_ds->mds_highGoalOutput = DoubleSolenoid::kReverse;
+	} else {
+		m_ds->mds_highGoalOutput = DoubleSolenoid::kOff;
+	}
+
 }

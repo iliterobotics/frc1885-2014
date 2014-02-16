@@ -21,11 +21,7 @@ void bhs_Autonomous::init() {
 }
 
 void bhs_Autonomous::run() {
-#if REAL_AUTO
 	hotGoalForward();
-#else
-	moveStraight(k_dist);
-#endif
 }
 
 void bhs_Autonomous::reset() {
@@ -53,70 +49,36 @@ int bhs_Autonomous::inchesToEncoder(float a_inches) {
 float bhs_Autonomous::encoderToInches(int a_encoders) {
 	return a_encoders / inchesToEncoder(1);
 }
-
-void bhs_Autonomous::moveStraight(int p_dist) {
-	int target = -p_dist;
+void bhs_Autonomous::hotGoalForward() {
+	int target = -k_dist;
 
 	switch(m_state) {
 	case k_forward:
 		float distCurrent = encoderToInches(m_gd->mdd_leftEncoderCounts);
-		float distOutput = m_distPID.getPID(distCurrent, target);
-		float straightCurrent = m_gd->mdd_gyroAngle;
-		float straightOutput = m_straightPID.getPID(straightCurrent, 0);
+				float distOutput = m_distPID.getPID(distCurrent, target);
+		#if 1
+				float straightCurrent = m_gd->mdd_gyroAngle;
+		#else
+				int straightCurrent = m_gd->mdd_leftEncoderCounts - m_gd->mdd_rightEncoderCounts;
+		#endif
+				float straightOutput = m_straightPID.getPID(straightCurrent, 0);
 
-		if(fabs(distCurrent)<1) {
-			distOutput = -0.25;
-		}
+				if(fabs(distCurrent)<1) {
+					distOutput = -0.25;
+				}
+				printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
+							
+				m_gd->mdd_joystick1X = 0;
+				m_gd->mdd_joystick1Y = -straightOutput - distOutput;
+				m_gd->mdd_joystick2X = 0;
+				m_gd->mdd_joystick2Y = straightOutput - distOutput;
 
-		m_gd->mdd_joystick1X = 0;
-		m_gd->mdd_joystick1Y = -straightOutput + distOutput;
-		m_gd->mdd_joystick2X = 0;
-		m_gd->mdd_joystick2Y = straightOutput + distOutput;
-
-
-
-		if(abs(distCurrent-target) <= k_pidThreshold) {
-			printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
-			m_state = k_finished;
-		}
-		break;
-
-	case k_finished:
-		reset();
-		if(fabs(m_gd->mdd_gyroAngle-180)<=0.5) {
-			float straightCurrent = m_gd->mdd_gyroAngle;
-			float straightOutput = m_straightPID.getPID(straightCurrent, 180);
-			
-			m_gd->mdd_joystick1X = 0;
-			m_gd->mdd_joystick1Y = -straightOutput;
-			m_gd->mdd_joystick2X = 0;
-			m_gd->mdd_joystick2Y = straightOutput;
-			
-			printf("sC: %f\t\tsO: %f\n", straightCurrent, straightOutput);
-
-		}
-		break;
-	default:
-		reset();
-	}
-}
-
-void bhs_Autonomous::hotGoalForward() {
-	int target = k_forwardDist;
-
-	switch(m_state) {
-	case k_forward:
-		float current = encoderToInches(m_gd->mdd_leftEncoderCounts);
-		float pidOutput = m_straightPID.getPID(current, target);
-		printf("%f\t\t%d\t\t%f\n", current, target, pidOutput);
-		m_gd->mdd_joystick1X = 0;
-		m_gd->mdd_joystick1Y = pidOutput;
-		m_gd->mdd_joystick2X = 0;
-		m_gd->mdd_joystick2Y = pidOutput;
-		if(fabs(m_gd->mdd_leftEncoderCounts-target) == k_pidThreshold) {
-			m_state = k_waitHot;
-		}
-		break;
+				if(fabs(distCurrent-target) <= k_pidThreshold) {
+					reset();
+					printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
+					m_state = k_shoot; //FIXME: This skips the waitHot
+				}
+				break;
 
 	case k_waitHot:
 		reset();
@@ -126,7 +88,7 @@ void bhs_Autonomous::hotGoalForward() {
 		break;
 
 	case k_shoot:
-		m_gd->mds_highGoalRelease = true;
+		m_gd->mds_highGoalOut = true;
 		m_state = k_finished;
 		break;
 

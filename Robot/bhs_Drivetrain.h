@@ -8,23 +8,31 @@
 #include "PID.h"
 
 class bhs_DriveTrain  {
-	public:
-		bhs_DriveTrain(bhs_GDDrivetrain*);
-		~bhs_DriveTrain();
+public:
+	bhs_DriveTrain(bhs_GDDrivetrain*);
+	~bhs_DriveTrain();
 
-		void run();
+	void run();
 
-	private:
-		bhs_GDDrivetrain* m_dd;
-		PID m_driveStraightPID;
+private:
+	bhs_GDDrivetrain* m_dd;
+	PID m_driveStraightPID;
 
-		void tankDrive();
-		void arcadeDrive();
-			void driveStraight();
-				void driveStraightReset();
+	void tankDrive();
+	void arcadeDrive();
+	void driveStraight();
+	void driveStraightReset();
 
-		float limit(float);
-		float deadzone(float);
+	float limit(float);
+	float deadzone(float);
+
+	int m_driveStraightTarget;
+	typedef enum {
+		k_notStraight,
+		k_initStraight,
+		k_straight
+	} State;
+	State m_driveStraightState;
 
 };
 

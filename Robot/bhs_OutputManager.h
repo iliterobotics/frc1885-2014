@@ -39,13 +39,18 @@ class bhs_OutputManager {
 #endif        // INTAKEs
 #if TUSKS
                 /*DoubleSolenoid m_leftTusk, m_rightTusk;*/
-                Solenoid m_tusks;
+                DoubleSolenoid m_tusks;
 #endif        // TUSKS
 #if SHOOTER
                 Talon m_wench;
                 Solenoid m_lowGoal;
-                Solenoid m_highGoalRelease;
+                DoubleSolenoid m_highGoalRelease;
+                
+                Solenoid m_s6, m_s7, m_s8;
+                
 #endif        // SHOOTER
+                
+                
 };
 
 #endif //BHS_OUTPUT_MANAGER_H_
