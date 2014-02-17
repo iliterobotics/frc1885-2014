@@ -21,9 +21,9 @@ bhs_OutputManager::bhs_OutputManager(bhs_GlobalData* a_gd)
 , m_lowGoal(bhs_Constants::SHOOTER_LOW_GOAL_SOLENOID)
 , m_highGoalRelease(bhs_Constants::SHOOTER_HIGH_GOAL_IN_SOLENOID, bhs_Constants::SHOOTER_HIGH_GOAL_OUT_SOLENOID)
 #endif 		// SHOOTER
-, m_s6(5)
-, m_s7(7)
-, m_s8(8)
+//, m_s6(5)
+//, m_s7(7)
+//, m_s8(8)
 {
 	m_gd = a_gd;
 
@@ -46,8 +46,6 @@ void bhs_OutputManager::init() {
 	m_intakeRoller.SetSpeed(0);
 #endif        // INTAKE
 #if TUSKS
-	/*m_leftTusk.Set(DoubleSolenoid::kOff);
-	m_rightTusk.Set(DoubleSolenoid::kOff);*/
 	m_tusks.Set(DoubleSolenoid::kOff);
 #endif        // TUSKS
 #if SHOOTER
@@ -62,9 +60,9 @@ void bhs_OutputManager::run() {
 	runMotors();
 	runPneumatics();
 	
-	m_s6.Set(true);
-	m_s7.Set(true);
-	m_s8.Set(true);
+//	m_s6.Set(true);
+//	m_s7.Set(true);
+//	m_s8.Set(true);
 }
 
 
@@ -73,14 +71,12 @@ void bhs_OutputManager::safety() {
 
 void bhs_OutputManager::runMotors() {
 #if DRIVETRAIN
-	//printf("dtLeft: %f\tdtRight: %f\t", m_gd->mdd_driveLeftPower, m_gd->mdd_driveRightPower);
 	m_driveLeftB.SetSpeed(m_gd->mdd_driveLeftPower);
 	m_driveRightB.SetSpeed(m_gd->mdd_driveRightPower);
 	m_driveLeftF.SetSpeed(m_gd->mdd_driveLeftPower);
 	m_driveRightF.SetSpeed(m_gd->mdd_driveRightPower);
 #endif        // DRIVETRAIN
 #if INTAKE
-	//printf("intake: %f\t", m_gd->mdi_intakePower);
 	m_intakeRoller.SetSpeed(m_gd->mdi_intakeOutput);
 #endif        // INTAKE
 #if SHOOTER
@@ -95,7 +91,6 @@ void bhs_OutputManager::runPneumatics() {
 	}
 #endif
 #if TUSKS
-	//printf("leftTusk: %f\trightTusk: %f\t", m_gd->mdt_leftTuskOutput, m_gd->mdt_rightTuskOutput);
 	m_tusks.Set(m_gd->mdt_tusksOutput);
 
 #endif
