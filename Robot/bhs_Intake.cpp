@@ -2,6 +2,7 @@
 
 bhs_Intake::bhs_Intake(bhs_GlobalData* a_di) {
 	m_di = a_di;
+	mdt_tusksUp = false;
 }
 
 void bhs_Intake::run() {
@@ -15,16 +16,18 @@ void bhs_Intake::run() {
 
 	if(m_di->mdt_tusksUp) {
 		m_di->mdt_tusksOutput = DoubleSolenoid::kReverse;
+		mdt_tusksUp = true;
 	} else if (m_di->mdt_tusksDown) {
 		m_di->mdi_intakeOutput = 0;
 		m_di->mdt_tusksOutput = DoubleSolenoid::kForward;
+		mdt_tusksUp = false;
 	} else {
 		m_di->mdt_tusksOutput = DoubleSolenoid::kOff;
 	}
 	
-	
 	if(!m_di->mds_wenchLimit) {
 		m_di->mdi_intakeOutput = 0;
 		m_di->mdt_tusksOutput = DoubleSolenoid::kForward;
+		mdt_tusksUp = false;
 	}
 }

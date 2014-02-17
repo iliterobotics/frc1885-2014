@@ -13,6 +13,7 @@ class bhs_Intake  {
 
 	private:
 		bhs_GlobalData* m_di;
+		bool mdt_tusksUp;
 };
 
 #endif //BHS_INTAKE_H_

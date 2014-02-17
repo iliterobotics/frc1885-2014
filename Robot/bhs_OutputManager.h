@@ -46,7 +46,7 @@ class bhs_OutputManager {
                 Solenoid m_lowGoal;
                 DoubleSolenoid m_highGoalRelease;
                 
-                Solenoid m_s6, m_s7, m_s8;
+                //Solenoid m_s6, m_s7, m_s8;
                 
 #endif        // SHOOTER
                 

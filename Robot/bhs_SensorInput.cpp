@@ -43,7 +43,7 @@ void bhs_SensorInput::init() {
 
 void bhs_SensorInput::run() {
 	// Read values from sensors and store in global variables
-	m_gd->md_pressureLevel = m_pressureLevel->GetAverageValue();
+	m_gd->md_pressureLevel = m_pressureLevel->GetValue(); 	// psi = (47.68)(voltage) - 13.058
 	m_gd->md_arduinoDistance = m_arduinoDistance->GetValue();
 	
 	m_gd->mdd_leftEncoderCounts = m_leftEncoder->Get();
