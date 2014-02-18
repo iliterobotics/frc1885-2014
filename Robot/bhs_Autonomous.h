@@ -10,7 +10,7 @@
 #include "PID.h"
 #include "bhs_SensorInput.h"
 
-#define REAL_AUTO 1
+#define TWO_BALL_1 0
 
 class bhs_Autonomous {
 public:
@@ -21,6 +21,7 @@ public:
 	virtual void run();
 
 private:
+#if TWO_BALL_1
 	typedef enum {
 		k_forward = 0,
 		k_waitHot,
@@ -30,6 +31,19 @@ private:
 		k_intake,
 		k_finished
 	} State;
+#else
+	typedef enum {
+		k_startTimer = 0,
+		k_intakeUp,
+		k_backward,
+		k_forward,
+		k_shoot1,
+		k_winch,
+		k_intakeDown,
+		k_shoot2,
+		k_finished
+	} State;
+#endif
 
 	bhs_GlobalData* m_gd;
 	State m_state;
@@ -39,18 +53,32 @@ private:
 	bool m_secondBall;
 
 	static const float k_maxVel = 0.8;
-	static const int k_pidThreshold = 2;
-	static const int k_forwardDist1 = -4 * 12;
-	static const int k_backwardDist1 = 5 * 12;
-	static const int k_forwardDist2 = -5 * 12;
-	static const double k_winchWaitTime = 4;
+#if TWO_BALL_1
+	static const int k_pidThreshold = 6;
+	static const int k_forwardDist1 = -7 * 12;
+	static const int k_backwardDist1 = 8 * 12;
+	static const int k_forwardDist2 = -8 * 12;
+	static const double k_winchWaitTime1 = .25;
+	static const double k_winchWaitTime2 = 2;
+#else
+	static const int k_pidThreshold = 4;
+	static const int k_backwardDist = 1 * 12;
+	static const int k_forwardDist = -8 * 12;
+	static const double k_intakeWait = 0.5;
+	static const double k_shootWait = 0.25;
+#endif
 
-	void reset();
+	void resetDT();
 	int inchesToEncoder(float a_inches);
 	float encoderToInches(int a_encoders);
 
-	void hotGoalForward();
-	void twoBallAuto();
+#if TWO_BALL_1
+	// Forward, shoot, back, pickup, forward, shoot
+	void twoBall1();
+#else
+	// Back, pickup, forward, shoot, shoot
+	void twoBall2();
+#endif
 };
 
 #endif //BHS_AUTONOMOUS_H_
