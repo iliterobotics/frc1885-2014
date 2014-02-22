@@ -31,7 +31,7 @@ else
 MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
-WS_ROOT_DIR := C:/Users/Silu/GitHub/frc1885-2014
+WS_ROOT_DIR := C:/Users/Robot/Documents/GitHub/frc1885-2014
 PRJ_ROOT_DIR := $(WS_ROOT_DIR)/Robot
 
 
