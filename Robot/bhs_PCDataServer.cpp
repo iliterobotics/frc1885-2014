@@ -23,12 +23,13 @@ bhs_PCDataServer::~bhs_PCDataServer()
 }
 
 void bhs_PCDataServer::xmitRawData(int anHeader,int anLen,char* apData)
-{
+{	
     if (mbServerReady)
     {
         semTake(mExternalUserSem,WAIT_FOREVER);//thread safe for external users and pcDataServer task
 
         // Write header
+        
         int headerSend = write(mConnectedSocket, reinterpret_cast<char*>(&anHeader), sizeof(anHeader));
 
         // Write image length to PC
@@ -51,6 +52,64 @@ void bhs_PCDataServer::xmitRawData(int anHeader,int anLen,char* apData)
         semGive(mExternalUserSem);
     }
 }
+
+bool bhs_PCDataServer::isHotGoal()
+{
+	int anHeader;
+	int anLen;
+	char* apData;
+	fd_set set;
+	int rcv;
+	struct timeval timeout;
+    if(mbServerReady)
+    {
+    	FD_ZERO(&set);
+    	FD_SET(mConnectedSocket,&set);
+    	
+    	timeout.tv_sec = 5;
+    	timeout.tv_usec = 0;
+    	
+    	rcv = select(mConnectedSocket+1,&set,NULL,NULL,&timeout);
+    	
+    	if(rcv == -1) {
+            semTake(mServerReadySem,WAIT_FOREVER);
+            mbServerReady = false;//set Server to false
+            semGive(mServerReadySem);
+
+            close(mConnectedSocket);//close connection
+            mConnectedSocket = 0;
+            semGive(mCurrentConnectionDone);//allow server task to accept new connection
+    	} else if (rcv == 0) {
+    		return true;
+    	} else {
+
+			// Write header
+			int headerSend = read(mConnectedSocket, reinterpret_cast<char*>(&anHeader), sizeof(anHeader));
+	
+			// Write image length to PC
+			int lengthSend = read(mConnectedSocket, reinterpret_cast<char*>(&anLen), sizeof(anLen));
+	
+			// Write data
+			int sent = read (mConnectedSocket, reinterpret_cast<char*>(apData), anLen);
+	
+			// The PC probably closed connection.
+			if (headerSend == ERROR || lengthSend == ERROR || sent == ERROR)
+			{
+					semTake(mServerReadySem,WAIT_FOREVER);
+					mbServerReady = false;//set Server to false
+					semGive(mServerReadySem);
+	
+					close(mConnectedSocket);//close connection
+					mConnectedSocket = 0;
+					semGive(mCurrentConnectionDone);//allow server task to accept new connection
+			}
+			//TODO: get the boolean and return - guess that its hot for now...
+			return true;
+    	}
+    }
+    return true;
+}
+
 
 /**
  * Static stub for kicking off the server task
@@ -127,6 +186,7 @@ int bhs_PCDataServer::ServerTask()
                                 semGive(mServerReadySem);
 
                                 semTake(mCurrentConnectionDone,WAIT_FOREVER);//wait until PC close connection to accept new connection
+                                //rcvData();
                         }
                 }
                 close(pcSock);          

@@ -165,9 +165,8 @@ SimpleTemplate_partialImage/Debug/Objects/Robot/bhs_Robot.o:  \
   C:/WindRiver/vxworks-6.3/target/h/sys/fcntlcom.h \
   C:/WindRiver/vxworks-6.3/target/h/unistd.h \
   C:/WindRiver/vxworks-6.3/target/h/sys/resource.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Utility.h \
+  C:/WindRiver/vxworks-6.3/target/h/selectLib.h \
+  C:/WindRiver/vxworks-6.3/target/h/private/selectLibP.h \
   C:/WindRiver/vxworks-6.3/target/h/taskLib.h \
   C:/WindRiver/vxworks-6.3/target/h/regs.h \
   C:/WindRiver/vxworks-6.3/target/h/arch/ppc/regsPpc.h \
@@ -186,7 +185,12 @@ SimpleTemplate_partialImage/Debug/Objects/Robot/bhs_Robot.o:  \
   C:/WindRiver/vxworks-6.3/target/h/eventLibCommon.h \
   C:/WindRiver/vxworks-6.3/target/h/arch/ppc/coprocPpc.h \
   C:/WindRiver/vxworks-6.3/target/h/copyright_wrs.h \
+  C:/WindRiver/vxworks-6.3/target/h/taskLib.h \
   C:/WindRiver/vxworks-6.3/target/h/sys/taskDefs.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Utility.h \
+  C:/WindRiver/vxworks-6.3/target/h/taskLib.h \
   C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_Constants.h \
   C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GlobalData.h \
   C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GDDrivetrain.h \
@@ -576,11 +580,9 @@ C:/WindRiver/vxworks-6.3/target/h/unistd.h:
 
 C:/WindRiver/vxworks-6.3/target/h/sys/resource.h:
 
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h:
+C:/WindRiver/vxworks-6.3/target/h/selectLib.h:
 
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Utility.h:
+C:/WindRiver/vxworks-6.3/target/h/private/selectLibP.h:
 
 C:/WindRiver/vxworks-6.3/target/h/taskLib.h:
 
@@ -618,7 +620,17 @@ C:/WindRiver/vxworks-6.3/target/h/arch/ppc/coprocPpc.h:
 
 C:/WindRiver/vxworks-6.3/target/h/copyright_wrs.h:
 
+C:/WindRiver/vxworks-6.3/target/h/taskLib.h:
+
 C:/WindRiver/vxworks-6.3/target/h/sys/taskDefs.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Utility.h:
+
+C:/WindRiver/vxworks-6.3/target/h/taskLib.h:
 
 C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_Constants.h:
 

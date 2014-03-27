@@ -192,6 +192,8 @@ SimpleTemplate_partialImage/Debug/Objects/Robot/bhs_MutexRobot.o:  \
   C:/WindRiver/vxworks-6.3/target/h/sys/fcntlcom.h \
   C:/WindRiver/vxworks-6.3/target/h/unistd.h \
   C:/WindRiver/vxworks-6.3/target/h/sys/resource.h \
+  C:/WindRiver/vxworks-6.3/target/h/selectLib.h \
+  C:/WindRiver/vxworks-6.3/target/h/private/selectLibP.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Timer.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Utility.h \
@@ -636,6 +638,10 @@ C:/WindRiver/vxworks-6.3/target/h/sys/fcntlcom.h:
 C:/WindRiver/vxworks-6.3/target/h/unistd.h:
 
 C:/WindRiver/vxworks-6.3/target/h/sys/resource.h:
+
+C:/WindRiver/vxworks-6.3/target/h/selectLib.h:
+
+C:/WindRiver/vxworks-6.3/target/h/private/selectLibP.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h:
 

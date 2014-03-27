@@ -1,4 +1,5 @@
 #include "bhs_Autonomous.h"
+#include "DataDiagnostic.h"
 
 bhs_Autonomous::bhs_Autonomous(bhs_GlobalData* a_gd) 
 : m_distPID()
@@ -12,7 +13,7 @@ bhs_Autonomous::bhs_Autonomous(bhs_GlobalData* a_gd)
 
 	m_state = k_forward;
 	m_ds = DriverStation::GetInstance();
-	
+
 	m_secondBall = false;
 }
 
@@ -28,12 +29,12 @@ void bhs_Autonomous::init() {
 //CHANGED
 void bhs_Autonomous::run() {
 	// ds = DriverStation.getInstance();  <- Would bring an error
-	if (m_ds->GetDigitalOut(1)) {
+	if (m_ds->GetDigitalIn(1)) {
 		hotGoalForward();
 	}else {
 		twoBall();
 	}
-	
+
 }
 
 void bhs_Autonomous::reset() {
@@ -68,34 +69,34 @@ void bhs_Autonomous::hotGoalForward() {
 	switch(m_state) {
 	case k_forward:
 		float distCurrent = encoderToInches(m_gd->mdd_leftEncoderCounts);
-				float distOutput = m_distPID.getPID(distCurrent, target);
-		#if 1
-				float straightCurrent = m_gd->mdd_gyroAngle;
-		#else
-				int straightCurrent = m_gd->mdd_leftEncoderCounts - m_gd->mdd_rightEncoderCounts;
-		#endif
-				float straightOutput = m_straightPID.getPID(straightCurrent, 0);
+		float distOutput = m_distPID.getPID(distCurrent, target);
+#if 1
+		float straightCurrent = m_gd->mdd_gyroAngle;
+#else
+		int straightCurrent = m_gd->mdd_leftEncoderCounts - m_gd->mdd_rightEncoderCounts;
+#endif
+		float straightOutput = m_straightPID.getPID(straightCurrent, 0);
 
-				if(fabs(distCurrent)<1) {
-					distOutput = -0.25;
-				}
-				printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
-							
-				m_gd->mdd_joystick1X = 0;
-				m_gd->mdd_joystick1Y = -straightOutput - distOutput;
-				m_gd->mdd_joystick2X = 0;
-				m_gd->mdd_joystick2Y = straightOutput - distOutput;
+		if(fabs(distCurrent)<1) {
+			distOutput = -0.25;
+		}
+		printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
 
-				if(fabs(distCurrent-target) <= k_pidThreshold1) {
-					reset();
-					printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
-					m_state = k_shoot; //FIXME: This skips the waitHot
-				}
-				break;
+		m_gd->mdd_joystick1X = 0;
+		m_gd->mdd_joystick1Y = -straightOutput - distOutput;
+		m_gd->mdd_joystick2X = 0;
+		m_gd->mdd_joystick2Y = straightOutput - distOutput;
+
+		if(fabs(distCurrent-target) <= 5){//k_pidThreshold1) {
+			reset();
+			printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
+			m_state = k_waitHot;
+		}
+		break;
 
 	case k_waitHot:
 		reset();
-		if(m_gd->mda_goalHot) {
+		if(RobotTelemetry::getInstance().isHotGoal()) {
 			m_state = k_shoot;
 		}
 		break;
@@ -116,8 +117,8 @@ void bhs_Autonomous::hotGoalForward() {
 }
 void bhs_Autonomous::twoBall() {
 	int target;
-	printf("current state: %d\t\t timer: %f\twait1: %f\twait2: %f\n",
-			m_state, m_timer.Get(), k_winchWaitTime1, k_winchWaitTime2);
+	//	printf("current state: %d\t\t timer: %f\twait1: %f\twait2: %f\n",
+	//			m_state, m_timer.Get(), k_winchWaitTime1, k_winchWaitTime2);
 
 	switch(m_state) {
 	case k_forward:
@@ -145,12 +146,6 @@ void bhs_Autonomous::twoBall() {
 		}
 		break;
 
-	case k_waitHot:
-		reset();
-		if(m_gd->mda_goalHot) {
-			m_state = k_shoot;
-		}
-		break;
 
 	case k_shoot:
 		m_gd->mds_highGoalIn = false;
@@ -168,8 +163,8 @@ void bhs_Autonomous::twoBall() {
 		break;
 
 	case k_rearm:
-		m_gd->mds_highGoalOut = false;
 		m_gd->mds_highGoalIn = true;
+		m_gd->mds_highGoalOut = false;
 		m_gd->mds_wench = true;
 		m_gd->mdt_tusksUp = true;
 		m_gd->mdi_intakeForward = true;

@@ -61,11 +61,12 @@ class RobotTelemetry {
 		virtual long getLength();
 		virtual char* getEncoded();
 		virtual RobotTelemetryData* getDecoded(char*);
+		virtual bool isHotGoal();
 		
 		/*
 		 * Update send rate
 		 */
-		virtual void updateSendRate(long);
+		virtual void updateSendRate(double);
 		
 		/*
 		 * Enable/Disable telemetry sending
@@ -96,7 +97,7 @@ class RobotTelemetry {
 		/*
 		 * Send rate
 		 */
-		long sendRate;
+		double sendRate;
 		
 		/*
 		 * enable/disable

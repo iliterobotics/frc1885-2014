@@ -7,6 +7,7 @@
 #include <hostLib.h>
 #include <inetLib.h>
 #include <sockLib.h>
+#include <selectLib.h>
 #include <semLib.h>
 
 #include "Task.h"
@@ -32,6 +33,7 @@ public:
 
 	bool ready(void);
 	void xmitRawData(int header,int length,char* apData);
+	bool isHotGoal();
 
 	static int ServerSocketTask(bhs_PCDataServer* apThis);
 

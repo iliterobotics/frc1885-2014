@@ -110,7 +110,7 @@ void RobotTelemetry::disable() {
 	semGive(mRobotTelemetry);
 }
 
-void RobotTelemetry::updateSendRate(long rate) {
+void RobotTelemetry::updateSendRate(double rate) {
 	
 	bool wasEnabled = isEnabled;
 	
@@ -179,6 +179,10 @@ void RobotTelemetry::updateTelemetryData() {
 		}
 	}
 
+}
+
+bool RobotTelemetry::isHotGoal() {
+	return bhs_PCDataServer::getInstance().isHotGoal();
 }
 
 void RobotTelemetry::scheduledSend() {

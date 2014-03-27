@@ -25,11 +25,7 @@ void bhs_Shooter::run() {
 	} else {
 		m_ds->mds_highGoalOutput = DoubleSolenoid::kOff;
 	}
-	
-	// If intake arm is out, cannot shoot.
-	if(m_ds->mdt_tusksUp) {
-		m_ds->mds_highGoalOutput = DoubleSolenoid::kOff;
-	}
+
 
 
 /*

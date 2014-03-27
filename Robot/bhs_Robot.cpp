@@ -17,7 +17,7 @@ bhs_Robot::bhs_Robot()
 	m_shooter = new bhs_Shooter(&m_gd);
 #if 1
 	//robot telemetry diagnostics
-	RobotTelemetry::getInstance().updateSendRate(1);
+	RobotTelemetry::getInstance().updateSendRate(0.05);
 	RobotTelemetry::getInstance().enable();
 	
 	//enable debugging
