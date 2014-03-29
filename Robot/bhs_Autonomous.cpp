@@ -90,7 +90,10 @@ void bhs_Autonomous::hotGoalForward() {
 		if(fabs(distCurrent-target) <= 5){//k_pidThreshold1) {
 			reset();
 			printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
-			m_state = k_waitHot;
+			//TODO: add hot goal
+			m_state = k_shoot;
+			m_timer.Reset();
+			m_timer.Start();
 		}
 		break;
 
@@ -98,12 +101,29 @@ void bhs_Autonomous::hotGoalForward() {
 		reset();
 		if(RobotTelemetry::getInstance().isHotGoal()) {
 			m_state = k_shoot;
+			m_timer.Reset();
+			m_timer.Start();
 		}
 		break;
 
 	case k_shoot:
 		m_gd->mds_highGoalOut = true;
-		m_state = k_finished;
+		if(m_timer.Get() >= k_winchWaitTime1) {
+			m_timer.Reset();
+			m_timer.Start();
+			m_state = k_rearm;
+		}
+		break;
+
+
+	case k_rearm:
+		m_gd->mds_highGoalIn = true;
+		m_gd->mds_highGoalOut = false;
+		m_gd->mds_wench = true;
+		if(m_timer.Get() >= k_winchWaitTime2) {
+			m_timer.Reset();
+			m_state = k_finished;
+		}
 		break;
 
 	case k_finished:
@@ -132,6 +152,10 @@ void bhs_Autonomous::twoBall() {
 		float distOutput = m_distPID.getPID(distCurrent, target);
 		float straightCurrent = m_gd->mdd_gyroAngle;
 		float straightOutput = m_straightPID.getPID(straightCurrent, 0);
+
+		//		if(fabs(distCurrent)<.5) {
+		//			distOutput = -0.25;
+		//		}
 
 		m_gd->mdd_joystick1X = 0;
 		m_gd->mdd_joystick1Y = -straightOutput - distOutput;

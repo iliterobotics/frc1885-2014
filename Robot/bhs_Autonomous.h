@@ -39,7 +39,7 @@ private:
 		k_intake,
 		k_finished
 	} State;
-	static const int k_pidThreshold2 = 6;
+	static const int k_pidThreshold2 = 4;
 	static const int k_forwardDist1 = -7 * 12;
 	static const int k_backwardDist1 = 8 * 12;
 	static const int k_forwardDist2 = -8 * 12;

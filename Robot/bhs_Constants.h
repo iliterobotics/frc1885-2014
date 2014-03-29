@@ -23,7 +23,7 @@ public:
 #endif
 
 #if DRIVETRAIN
-	static const double PID_STRAIGHT_P = 0.1; // default 0.0015
+	static const double PID_STRAIGHT_P = 0.08; // default 0.0015
 	static const double PID_STRAIGHT_I = 0.0001; // default 0.0
 	static const double PID_STRAIGHT_D = 0.00000; // default -0.00
 	static const double PID_DRIVE_P = 0.02; // default 0.0015

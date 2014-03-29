@@ -25,9 +25,9 @@ void bhs_Intake::run() {
 		m_di->mdt_tusksOutput = DoubleSolenoid::kOff;
 	}
 	
-	if(!m_di->mds_wenchLimit) {
-		m_di->mdi_intakeOutput = 0;
-		m_di->mdt_tusksOutput = DoubleSolenoid::kForward;
-		mdt_tusksUp = false;
-	}
+//	if(!m_di->mds_wenchLimit) {
+//		m_di->mdi_intakeOutput = 0;
+//		m_di->mdt_tusksOutput = DoubleSolenoid::kForward;
+//		mdt_tusksUp = false;
+//	}
 }

@@ -16,6 +16,7 @@ public:
 	bool mds_highGoalOut;
 	bool mds_lowGoal;
 	bool mds_wench;
+	bool mds_engageWench;
 	
 	float mds_wenchOutput;
 	DoubleSolenoid::Value mds_highGoalOutput;

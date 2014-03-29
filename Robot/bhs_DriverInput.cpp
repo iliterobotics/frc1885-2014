@@ -38,5 +38,6 @@ void bhs_DriverInput::run() {
 
 	m_gd->mds_lowGoal = m_controller.GetRawButton(LOW_GOAL);
 	m_gd->mds_wench = m_controller.GetRawButton(WENCH);
+	m_gd->mds_engageWench = m_controller.GetRawAxis(6)==1;
 
 }
