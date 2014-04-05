@@ -41,10 +41,10 @@ private:
 	} State;
 	static const int k_pidThreshold2 = 4;
 	static const int k_forwardDist1 = -7 * 12;
-	static const int k_backwardDist1 = 8 * 12;
-	static const int k_forwardDist2 = -8 * 12;
+	static const int k_backwardDist1 = 8 * 12 + 6;
+	static const int k_forwardDist2 = -8 * 12 - 6;
 	static const double k_winchWaitTime1 = .25;
-	static const double k_winchWaitTime2 = 2;
+	static const double k_winchWaitTime2 = 2.25;
 #endif
 
 	bhs_GlobalData* m_gd;

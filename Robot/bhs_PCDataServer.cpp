@@ -83,13 +83,13 @@ bool bhs_PCDataServer::isHotGoal()
     		return true;
     	} else {
 
-			// Write header
+			// read header
 			int headerSend = read(mConnectedSocket, reinterpret_cast<char*>(&anHeader), sizeof(anHeader));
 	
-			// Write image length to PC
+			// read image length to PC
 			int lengthSend = read(mConnectedSocket, reinterpret_cast<char*>(&anLen), sizeof(anLen));
 	
-			// Write data
+			// read data
 			int sent = read (mConnectedSocket, reinterpret_cast<char*>(apData), anLen);
 	
 			// The PC probably closed connection.
@@ -102,9 +102,11 @@ bool bhs_PCDataServer::isHotGoal()
 					close(mConnectedSocket);//close connection
 					mConnectedSocket = 0;
 					semGive(mCurrentConnectionDone);//allow server task to accept new connection
+					return true;
 			}
+			
 			//TODO: get the boolean and return - guess that its hot for now...
-			return true;
+			return (anLen > 0 && apData[0] == 1);
     	}
     }
     return true;

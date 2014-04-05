@@ -28,7 +28,6 @@ void bhs_Autonomous::init() {
 
 //CHANGED
 void bhs_Autonomous::run() {
-	// ds = DriverStation.getInstance();  <- Would bring an error
 	if (m_ds->GetDigitalIn(1)) {
 		hotGoalForward();
 	}else {
@@ -64,9 +63,11 @@ float bhs_Autonomous::encoderToInches(int a_encoders) {
 }
 
 void bhs_Autonomous::hotGoalForward() {
+	bool isHot = false;
 	int target = -k_dist;
 
 	switch(m_state) {
+	printf("state: %d\n", m_state);
 	case k_forward:
 		float distCurrent = encoderToInches(m_gd->mdd_leftEncoderCounts);
 		float distOutput = m_distPID.getPID(distCurrent, target);
@@ -80,7 +81,7 @@ void bhs_Autonomous::hotGoalForward() {
 		if(fabs(distCurrent)<1) {
 			distOutput = -0.25;
 		}
-		printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
+//		printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
 
 		m_gd->mdd_joystick1X = 0;
 		m_gd->mdd_joystick1Y = -straightOutput - distOutput;
@@ -89,17 +90,19 @@ void bhs_Autonomous::hotGoalForward() {
 
 		if(fabs(distCurrent-target) <= 5){//k_pidThreshold1) {
 			reset();
-			printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
+//			printf("dC: %f \t\tdO: %f\t\tsC: %f\t\tsO: %f\n", distCurrent, distOutput, straightCurrent, straightOutput);
 			//TODO: add hot goal
-			m_state = k_shoot;
+			m_state = k_waitHot;
 			m_timer.Reset();
 			m_timer.Start();
 		}
 		break;
 
 	case k_waitHot:
+		isHot =  RobotTelemetry::getInstance().isHotGoal();
+		double time = m_timer.Get();
 		reset();
-		if(RobotTelemetry::getInstance().isHotGoal()) {
+		if(isHot || time>5) {
 			m_state = k_shoot;
 			m_timer.Reset();
 			m_timer.Start();
@@ -107,6 +110,7 @@ void bhs_Autonomous::hotGoalForward() {
 		break;
 
 	case k_shoot:
+		m_gd->mds_highGoalIn = false;
 		m_gd->mds_highGoalOut = true;
 		if(m_timer.Get() >= k_winchWaitTime1) {
 			m_timer.Reset();
@@ -129,6 +133,7 @@ void bhs_Autonomous::hotGoalForward() {
 	case k_finished:
 		reset();
 		m_straightPID.reset();
+		m_gd->mds_wench = false;
 		break;
 
 	default:

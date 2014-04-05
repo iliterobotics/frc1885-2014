@@ -8,6 +8,8 @@ bhs_GDShooter::bhs_GDShooter() {
 	mds_lowGoal = false;
 	mds_wench = false;
 	mds_engageWench = false;
+	//Changed
+	mds_doubleShot = false;
 	
 	mds_wenchOutput = 0;
 	mds_highGoalOutput = DoubleSolenoid::kOff;

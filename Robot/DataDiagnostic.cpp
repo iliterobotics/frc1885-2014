@@ -183,6 +183,7 @@ void RobotTelemetry::updateTelemetryData() {
 
 bool RobotTelemetry::isHotGoal() {
 	return bhs_PCDataServer::getInstance().isHotGoal();
+	//return true;
 }
 
 void RobotTelemetry::scheduledSend() {
