@@ -109,7 +109,7 @@ bool bhs_PCDataServer::isHotGoal()
 			return (anLen > 0 && apData[0] == 1);
     	}
     }
-    return false;
+    return true;
 }
 
 

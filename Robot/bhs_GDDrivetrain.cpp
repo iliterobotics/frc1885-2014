@@ -8,7 +8,7 @@ bhs_GDDrivetrain::bhs_GDDrivetrain() {
 	mdd_buttonUseArcadeDrive = false;
 	mdd_arcadeDrive = false;
 
-	mdd_gyroAngle = 0;
+	//mdd_gryoAngle = 0;
 	mdd_leftEncoderCounts = 0;
 	mdd_rightEncoderCounts = 0;
 

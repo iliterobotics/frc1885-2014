@@ -1,6 +1,6 @@
 SimpleTemplate_partialImage/Debug/Objects/Robot/bhs_DriverInput.o:  \
- C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_DriverInput.cpp \
-  C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_DriverInput.h \
+ C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_DriverInput.cpp \
+  C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_DriverInput.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/GenericHID.h \
   C:/WindRiver/vxworks-6.3/target/h/vxWorks.h \
@@ -47,49 +47,51 @@ SimpleTemplate_partialImage/Debug/Objects/Robot/bhs_DriverInput.o:  \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/NiRio.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/NiFpga.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Error.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/string \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/istream \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/ostream \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/ios \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xlocnum \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cerrno \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/yvals.h \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/string \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/istream \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/ostream \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/ios \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocnum \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cerrno \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/yvals.h \
   C:/WindRiver/vxworks-6.3/target/h/errno.h \
   C:/WindRiver/vxworks-6.3/target/h/types/vxANSI.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/climits \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/climits \
+  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/include/limits.h \
+  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/include/syslimits.h \
   C:/WindRiver/vxworks-6.3/target/h/limits.h \
   C:/WindRiver/vxworks-6.3/target/h/tool/gnu/limits.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cstdio \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cstdio \
   C:/WindRiver/vxworks-6.3/target/h/stdio.h \
   C:/WindRiver/vxworks-6.3/target/h/errno.h \
   C:/WindRiver/vxworks-6.3/target/h/private/handleLibP.h \
   c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/include/stdarg.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cstdlib \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cstdlib \
   C:/WindRiver/vxworks-6.3/target/h/stdlib.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/streambuf \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xiosbase \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xlocale \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cstring \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/streambuf \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xiosbase \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocale \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cstring \
   C:/WindRiver/vxworks-6.3/target/h/string.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/stdexcept \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/exception \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xstddef \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cstddef \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xstring \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xmemory \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/new \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xutility \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/utility \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/iosfwd \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/typeinfo \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/abi_decl.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xdebug \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xlocinfo \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cctype \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/stdexcept \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/exception \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xstddef \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cstddef \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xstring \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xmemory \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/new \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xutility \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/utility \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/iosfwd \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/typeinfo \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/abi_decl.h \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xdebug \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocinfo \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cctype \
   C:/WindRiver/vxworks-6.3/target/h/ctype.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/clocale \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/clocale \
   C:/WindRiver/vxworks-6.3/target/h/locale.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/ctime \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/ctime \
   C:/WindRiver/vxworks-6.3/target/h/time.h \
   C:/WindRiver/vxworks-6.3/target/h/types/vxANSI.h \
   C:/WindRiver/vxworks-6.3/target/h/objLib.h \
@@ -97,14 +99,14 @@ SimpleTemplate_partialImage/Debug/Objects/Robot/bhs_DriverInput.o:  \
   C:/WindRiver/vxworks-6.3/target/h/objLibCommon.h \
   C:/WindRiver/vxworks-6.3/target/h/vwModNum.h \
   C:/WindRiver/vxworks-6.3/target/h/base/b_struct_timespec.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xlocinfo.h \
+  c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocinfo.h \
   C:/WindRiver/vxworks-6.3/target/h/semLib.h \
   C:/WindRiver/vxworks-6.3/target/h/vwModNum.h \
   C:/WindRiver/vxworks-6.3/target/h/semLibCommon.h \
-  C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_Constants.h \
-  C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_GlobalData.h \
-  C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_GDDrivetrain.h \
-  C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_GDIntake.h \
+  C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_Constants.h \
+  C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GlobalData.h \
+  C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GDDrivetrain.h \
+  C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GDIntake.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/DoubleSolenoid.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/SolenoidBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Resource.h \
@@ -135,21 +137,11 @@ SimpleTemplate_partialImage/Debug/Objects/Robot/bhs_DriverInput.o:  \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITable.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h \
-  C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_GDShooter.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStation.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Dashboard.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DashboardBase.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/NetworkCommunication/FRCComm.h \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/stack \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/deque \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/memory \
-  c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/vector \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationEnhancedIO.h \
-  C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h \
+  C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GDShooter.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Relay.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITable.h
 
-C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_DriverInput.h:
+C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_DriverInput.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Joystick.h:
 
@@ -243,31 +235,35 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/ChipObject/NiFpga.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Error.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/string:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/string:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/istream:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/istream:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/ostream:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/ostream:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/ios:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/ios:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xlocnum:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocnum:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cerrno:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cerrno:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/yvals.h:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/yvals.h:
 
 C:/WindRiver/vxworks-6.3/target/h/errno.h:
 
 C:/WindRiver/vxworks-6.3/target/h/types/vxANSI.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/climits:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/climits:
+
+c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/include/limits.h:
+
+c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/include/syslimits.h:
 
 C:/WindRiver/vxworks-6.3/target/h/limits.h:
 
 C:/WindRiver/vxworks-6.3/target/h/tool/gnu/limits.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cstdio:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cstdio:
 
 C:/WindRiver/vxworks-6.3/target/h/stdio.h:
 
@@ -277,57 +273,57 @@ C:/WindRiver/vxworks-6.3/target/h/private/handleLibP.h:
 
 c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/include/stdarg.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cstdlib:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cstdlib:
 
 C:/WindRiver/vxworks-6.3/target/h/stdlib.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/streambuf:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/streambuf:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xiosbase:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xiosbase:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xlocale:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocale:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cstring:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cstring:
 
 C:/WindRiver/vxworks-6.3/target/h/string.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/stdexcept:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/stdexcept:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/exception:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/exception:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xstddef:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xstddef:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cstddef:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cstddef:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xstring:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xstring:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xmemory:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xmemory:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/new:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/new:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xutility:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xutility:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/utility:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/utility:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/iosfwd:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/iosfwd:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/typeinfo:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/typeinfo:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/abi_decl.h:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/abi_decl.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xdebug:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xdebug:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xlocinfo:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocinfo:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/cctype:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/cctype:
 
 C:/WindRiver/vxworks-6.3/target/h/ctype.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/clocale:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/clocale:
 
 C:/WindRiver/vxworks-6.3/target/h/locale.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/ctime:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/ctime:
 
 C:/WindRiver/vxworks-6.3/target/h/time.h:
 
@@ -343,7 +339,7 @@ C:/WindRiver/vxworks-6.3/target/h/vwModNum.h:
 
 C:/WindRiver/vxworks-6.3/target/h/base/b_struct_timespec.h:
 
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/xlocinfo.h:
+c:/windriver/gnu/3.4.4-vxworks-6.3/x86-win32/lib/gcc/../../../x86-win32/include/c++/3.4.4/xlocinfo.h:
 
 C:/WindRiver/vxworks-6.3/target/h/semLib.h:
 
@@ -351,13 +347,13 @@ C:/WindRiver/vxworks-6.3/target/h/vwModNum.h:
 
 C:/WindRiver/vxworks-6.3/target/h/semLibCommon.h:
 
-C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_Constants.h:
+C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_Constants.h:
 
-C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_GlobalData.h:
+C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GlobalData.h:
 
-C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_GDDrivetrain.h:
+C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GDDrivetrain.h:
 
-C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_GDIntake.h:
+C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GDIntake.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/DoubleSolenoid.h:
 
@@ -419,27 +415,7 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITable.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/tables/ITableListener.h:
 
-C:/Users/Silu/GitHub/frc1885-2014/Robot/bhs_GDShooter.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStation.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Dashboard.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DashboardBase.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/NetworkCommunication/FRCComm.h:
-
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/stack:
-
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/deque:
-
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/memory:
-
-c:\windriver\gnu\3.4.4-vxworks-6.3\x86-win32\bin\../lib/gcc/powerpc-wrs-vxworks/3.4.4/../../../../include/c++/3.4.4/vector:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/DriverStationEnhancedIO.h:
-
-C:/WindRiver/vxworks-6.3/target/h/WPILib/Task.h:
+C:/Users/Robot/Documents/GitHub/frc1885-2014/Robot/bhs_GDShooter.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Relay.h:
 
