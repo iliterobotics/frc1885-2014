@@ -45,7 +45,11 @@ private:
 	static const int k_forwardDist2 = -8 * 12 - 6;
 	static const double k_winchWaitTime1 = .25;
 	static const double k_winchWaitTime2 = 2.25;
-#endif
+	
+	void twoHot();
+	
+	void moveForward();
+	
 
 	bhs_GlobalData* m_gd;
 	State m_state;
@@ -63,7 +67,11 @@ private:
 	void reset();
 	int inchesToEncoder(float a_inches);
 	float encoderToInches(int a_encoders);
+	int degreesToEncoder(float a_degrees);
+	float encocerToDegrees(int a_encoders);
 
 	void moveStraight(int p_dist);
 
 };
+
+#endif

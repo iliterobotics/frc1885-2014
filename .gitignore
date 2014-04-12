@@ -1,5 +1,5 @@
 Robot/.metadata/*
-Robot/PPC603gnu/Simple*
+Robot/PPC603gnu/*
 *.metadata
 
 # Compiled Object files
