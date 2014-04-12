@@ -1,5 +1,6 @@
-.metadata/*
-PPC603gnu/Simple*
+Robot/.metadata/*
+Robot/PPC603gnu/Simple*
+*.metadata
 
 # Compiled Object files
 *.slo
