@@ -49,9 +49,8 @@ private:
 
 	bhs_GlobalData* m_gd;
 	State m_state;
-	//PID m_straightPID; OLD used with gryos
-	PID m_leftDistPID;
-	PID m_rightDistPID;
+	PID m_distPID;
+	PID m_straightPID;
 	DriverStation* m_ds;
 	Timer m_timer;
 	bool m_secondBall;

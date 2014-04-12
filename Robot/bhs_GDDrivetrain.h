@@ -15,7 +15,7 @@ class bhs_GDDrivetrain {
 		bool mdd_arcadeDrive;
 		bool mdd_reversed;
 
-		//mdd_gryoAngle;
+		float mdd_gyroAngle;
 		int mdd_leftEncoderCounts;
 		int mdd_rightEncoderCounts;
 

@@ -1,6 +1,8 @@
 #ifndef BHS_SHOOTER_H_
 #define BHS_SHOOTER_H_
 
+#include "Timer.h"
+
 #include "bhs_GlobalData.h"
 
 class bhs_Shooter {
@@ -19,6 +21,15 @@ class bhs_Shooter {
 			k_winch
 		} ShootState;
 		ShootState m_state;
+		
+		typedef enum {
+			k_lowGoal = 0,
+			k_wait,
+			k_highGoal,
+			k_finished
+		} DoubleShotState;
+		DoubleShotState m_doubleShotState;
+		Timer* m_doubleShotTimer;
 		
 };
 #endif

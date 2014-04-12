@@ -31,7 +31,7 @@ else
 MODE_DIR := NonDebug
 endif
 OBJ_DIR := .
-WS_ROOT_DIR := C:/Users/Robot/Documents/GitHub/frc1885-2014
+WS_ROOT_DIR := C:/Users/Silu/GitHub/frc1885-2014
 PRJ_ROOT_DIR := $(WS_ROOT_DIR)/Robot
 
 
@@ -162,6 +162,14 @@ SimpleTemplate_partialImage/$(MODE_DIR)/% : LIBPATH =
 SimpleTemplate_partialImage/$(MODE_DIR)/% : LIBS = 
 SimpleTemplate_partialImage/$(MODE_DIR)/% : OBJ_DIR := SimpleTemplate_partialImage/$(MODE_DIR)
 
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o : $(PRJ_ROOT_DIR)/.metadata/.plugins/org.eclipse.cdt.make.core/specs.c $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C-Compiler) $(CC_ARCH_SPEC) -ansi  -Wall  -MD -MP -mlongcall $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
+SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o : $(PRJ_ROOT_DIR)/.metadata/.plugins/org.eclipse.cdt.make.core/specs.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/DataDiagnostic.o : $(PRJ_ROOT_DIR)/DataDiagnostic.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
@@ -230,7 +238,9 @@ SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Shooter.o : $(PRJ_ROOT
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
-OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/DataDiagnostic.o \
+OBJECTS_SimpleTemplate_partialImage = SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/.metadata/.plugins/org.eclipse.cdt.make.core/specs.o \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/DataDiagnostic.o \
 	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/PID.o \
 	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Autonomous.o \
 	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Compressor.o \
@@ -260,12 +270,13 @@ SimpleTemplate_partialImage/$(MODE_DIR)/SimpleTemplate_partialImage_clean :
 
 force : 
 
-DEP_FILES := SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/DataDiagnostic.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/PID.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Autonomous.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Compressor.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_DriverInput.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Drivetrain.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_GDDrivetrain.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_GDIntake.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_GDShooter.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_GlobalData.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Intake.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_MutexRobot.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_OutputManager.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_PCDataServer.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Robot.d \
-	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_SensorInput.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Shooter.d
+DEP_FILES := SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/.metadata/.plugins/org.eclipse.cdt.make.core/specs.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/.metadata/.plugins/org.eclipse.cdt.make.core/specs.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/DataDiagnostic.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/PID.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Autonomous.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Compressor.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_DriverInput.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Drivetrain.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_GDDrivetrain.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_GDIntake.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_GDShooter.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_GlobalData.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Intake.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_MutexRobot.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_OutputManager.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_PCDataServer.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Robot.d SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_SensorInput.d \
+	 SimpleTemplate_partialImage/$(MODE_DIR)/Objects/Robot/bhs_Shooter.d
 -include $(DEP_FILES)
 
 

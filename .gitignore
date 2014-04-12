@@ -22,4 +22,7 @@
 # Executables
 *.exe
 *.out
+<<<<<<< HEAD
 *.app
+=======
+>>>>>>> parent of 402d7ac... Merged with Juan's last commit that nuked the gyro
