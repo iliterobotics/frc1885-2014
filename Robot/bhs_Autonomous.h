@@ -26,13 +26,14 @@ private:
 
 	static const float k_maxVel = 0.8;
 	static const int k_dist = 84;			// 180 inches, 15 feet
-	static const int k_forwardDist = 180;	// 
 	static const int k_pidThreshold1 = 2;
 
 	void twoBall();
 	typedef enum {
 		k_forward = 0,
 		k_waitHot,
+		k_getHotStatus,
+		k_turn,
 		k_shoot,
 		k_rearm,
 		k_backward,
@@ -47,6 +48,8 @@ private:
 	static const double k_winchWaitTime2 = 2.25;
 	
 	void twoHot();
+	static const float k_turnDegrees = 30;
+	static const float k_turnThreshold = 3;
 	
 	void moveForward();
 	
@@ -56,6 +59,7 @@ private:
 	//PID m_straightPID; OLD used with gryos
 	PID m_leftDistPID;
 	PID m_rightDistPID;
+	PID m_turnPID;
 	DriverStation* m_ds;
 	Timer m_timer;
 	bool m_secondBall;
@@ -68,7 +72,7 @@ private:
 	int inchesToEncoder(float a_inches);
 	float encoderToInches(int a_encoders);
 	int degreesToEncoder(float a_degrees);
-	float encocerToDegrees(int a_encoders);
+	float encoderToDegrees(int a_encoders);
 
 	void moveStraight(int p_dist);
 

@@ -4,12 +4,14 @@
 bhs_Autonomous::bhs_Autonomous(bhs_GlobalData* a_gd) 
 : m_leftDistPID()
 , m_rightDistPID()
+, m_turnPID()
 , m_timer()
 {	
 	m_gd = a_gd;
 
+	m_leftDistPID.setConstants(bhs_Constants::PID_DRIVE_P, bhs_Constants::PID_DRIVE_I, bhs_Constants::PID_DRIVE_D);
 	m_rightDistPID.setConstants(bhs_Constants::PID_DRIVE_P, bhs_Constants::PID_DRIVE_I, bhs_Constants::PID_DRIVE_D);
-	m_rightDistPID.setConstants(bhs_Constants::PID_DRIVE_P, bhs_Constants::PID_DRIVE_I, bhs_Constants::PID_DRIVE_D);
+	m_turnPID.setConstants(bhs_Constants::PID_STRAIGHT_P, bhs_Constants::PID_STRAIGHT_I, bhs_Constants::PID_STRAIGHT_D);
 
 	m_state = k_forward;
 	m_ds = DriverStation::GetInstance();
@@ -26,18 +28,16 @@ void bhs_Autonomous::init() {
 	reset();
 }
 
-//CHANGED
 void bhs_Autonomous::run() {
 	if(m_ds->GetDigitalIn(1)) {
 		hotGoalForward();
 	} else if(m_ds->GetDigitalIn(2)) {
 		twoBall();
-	} else if(m_ds->GetDigitalOut(3)) {
+	} else if(m_ds->GetDigitalIn(3)) {
 		twoHot();
 	} else {
 		moveForward();
 	}
-
 }
 
 void bhs_Autonomous::reset() {
@@ -48,6 +48,7 @@ void bhs_Autonomous::reset() {
 
 	m_rightDistPID.reset();
 	m_leftDistPID.reset();
+	m_turnPID.reset();
 }
 
 int bhs_Autonomous::inchesToEncoder(float a_inches) {
@@ -64,6 +65,17 @@ int bhs_Autonomous::inchesToEncoder(float a_inches) {
 
 float bhs_Autonomous::encoderToInches(int a_encoders) {
 	return a_encoders / inchesToEncoder(1);
+}
+
+int bhs_Autonomous::degreesToEncoder(float a_degrees) {
+	static const float robot_radius = 30;
+	static const float robot_circum = 2 * 3.14 * robot_radius;
+
+	return inchesToEncoder(a_degrees / 360 * robot_circum);
+}
+
+float bhs_Autonomous::encoderToDegrees(int a_encoders) {
+	return a_encoders / degreesToEncoder(1);
 }
 
 void bhs_Autonomous::hotGoalForward() {
@@ -166,8 +178,6 @@ void bhs_Autonomous::twoBall() {
 		float distCurrentRight = encoderToInches(m_gd->mdd_rightEncoderCounts);
 		float rightMotorOutput = m_rightDistPID.getPID(distCurrentRight, target);
 
-
-
 		//		if(fabs(distCurrent)<.5) {m
 		//			distOutput = -0.25;
 		//		}
@@ -255,11 +265,128 @@ void bhs_Autonomous::twoBall() {
 }
 
 void bhs_Autonomous::twoHot() {
+	float target;
+	switch(m_state) {
+	case k_forward:
+		target = k_forwardDist1;
 
+		float distCurrentLeft = encoderToInches(m_gd->mdd_leftEncoderCounts);
+		float distCurrentRight = encoderToInches(m_gd->mdd_rightEncoderCounts);
+
+		float leftMotorOutput = m_leftDistPID.getPID(distCurrentLeft, target);
+		float rightMotorOutput = m_rightDistPID.getPID(distCurrentRight, target);
+
+		if(fabs(distCurrentRight)<1) {
+			rightMotorOutput = -0.25;
+		}
+		if(fabs(distCurrentLeft)<1) {
+			leftMotorOutput = -0.25;
+		}
+
+		m_gd->mdd_joystick1X = 0;
+		m_gd->mdd_joystick1Y = leftMotorOutput;
+		m_gd->mdd_joystick2X = 0;
+		m_gd->mdd_joystick2Y = rightMotorOutput;
+
+		if(fabs(distCurrentLeft-target) <= 5 && fabs(distCurrentRight-target) <= 5){//k_pidThreshold1) {
+			reset();
+			m_state = k_getHotStatus;
+		}
+		break;
+
+	case k_getHotStatus:
+		if(m_gd->mda_goalStatus != 0) {
+			m_state = k_turn;
+		}
+		break;
+
+	case k_turn:
+		if(m_gd->mda_goalStatus == 1) {
+			target = -k_turnDegrees;
+		} else {
+			target = k_turnDegrees;
+		}
+		float current = encoderToDegrees(m_gd->mdd_leftEncoderCounts);
+		float output = m_turnPID.getPID(current, target);
+
+		m_gd->mdd_joystick1X = 0;
+		m_gd->mdd_joystick1Y = -output;
+		m_gd->mdd_joystick2X = 0;
+		m_gd->mdd_joystick2Y = output;
+
+		if(fabs(current - target) < k_turnThreshold) {
+			reset();
+			m_state = k_shoot;
+		}
+		break;
+
+	case k_shoot:
+		m_gd->mds_highGoalIn = false;
+		m_gd->mds_highGoalOut = true;
+		m_gd->mds_wench = false;
+		if(m_secondBall) {
+			m_state = k_finished;
+		}
+		if(m_timer.Get() >= k_winchWaitTime1) {
+			m_state = k_rearm;
+			m_secondBall = true;
+			m_timer.Reset();
+			m_timer.Start();
+		}
+		break;
+
+	case k_rearm:
+		m_gd->mds_highGoalIn = true;
+		m_gd->mds_highGoalOut = false;
+		m_gd->mds_wench = true;
+		m_gd->mdt_tusksUp = true;
+		m_gd->mdi_intakeForward = true;
+		if(m_timer.Get() >= k_winchWaitTime2) {
+			m_timer.Reset();
+			m_state = k_backward;
+		}
+		break;
+
+	case k_backward:
+		target = k_backwardDist1 + k_forwardDist1;
+
+		distCurrentLeft = encoderToInches(m_gd->mdd_leftEncoderCounts);
+		leftMotorOutput = m_leftDistPID.getPID(distCurrentLeft, target);
+
+		distCurrentRight = encoderToInches(m_gd->mdd_rightEncoderCounts);
+		rightMotorOutput = m_rightDistPID.getPID(distCurrentRight, target);
+
+		m_gd->mdd_joystick1X = 0;
+		m_gd->mdd_joystick1Y = leftMotorOutput;
+		m_gd->mdd_joystick2X = 0;
+		m_gd->mdd_joystick2Y = rightMotorOutput;
+
+		if(fabs(distCurrentLeft-target) <= k_pidThreshold2 && fabs(distCurrentRight-target) <= k_pidThreshold2) {
+			reset();
+			m_state = k_intake;
+		}
+		break;
+
+	case k_intake:
+		m_gd->mdt_tusksUp = false;
+		m_gd->mdt_tusksDown = true;
+		m_secondBall = true;
+		m_state = k_forward;
+		break;
+
+	case k_finished:
+		reset();
+		m_gd->mds_wench = false;
+		break;
+
+	default:
+		reset();
+		break;
+	}
 }
 
 void bhs_Autonomous::moveForward() {
-	int target = k_forwardDist;
+	int target = k_forwardDist2;
 	switch(m_state) {
 	case k_forward:
 		float distCurrentLeft = encoderToInches(m_gd->mdd_leftEncoderCounts);

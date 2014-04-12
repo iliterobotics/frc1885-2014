@@ -15,6 +15,7 @@ class bhs_GlobalData
 		bhs_GlobalData();
 		
 		bool mda_goalHot;	// TEMPORARY until data structure developed for comms and vision data
+		int mda_goalStatus; // 0 - off, 1 - left, 2 - right
 		float md_pressureLevel;
 		float md_arduinoDistance;
 };
